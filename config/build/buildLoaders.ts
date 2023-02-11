@@ -20,23 +20,25 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   };
 
   const babelLoader = {
-    test: /\.(js|jsx|tsx)$/,
+    test: /\.(js|jsx|ts|tsx)$/,
     exclude: /node_modules/,
     use: {
-      loader: "babel-loader",
+      loader: 'babel-loader',
       options: {
         presets: ['@babel/preset-env'],
-        "plugins": [
+        plugins: [
           [
-            "i18next-extract",
+            'i18next-extract',
             {
-              "locales": ["ru", "en"],
-              "keyAsDefaultValue": true,
-            }
+              locales: ['en', 'ru'],
+              keyAsDefaultValue: false,
+              saveMissing: true,
+              outputPath: 'public/locales/{{locale}}/{{ns}}.json',
+            },
           ],
-        ]
-      }
-    }
+        ],
+      },
+    },
   };
 
   const typescriptLoader = {
