@@ -28,8 +28,8 @@ export const Navbar: FC<NavbarProps> = () => {
         {t('Войти')}
       </Button>
       <Modal isOpen={isAuthModalOpen} onClose={onToggleModal}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aperiam asperiores dicta dolor dolores illum
-        in, iusto provident quos tenetur!
+        {/* eslint-disable-next-line i18next/no-literal-string,max-len */}
+        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aperiam asperiores dicta dolor dolores illum in, iusto provident quos tenetur!</div>
       </Modal>
     </div>
   );
