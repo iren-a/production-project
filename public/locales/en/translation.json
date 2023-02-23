@@ -1,4 +1,7 @@
 {
+  "decrement": "",
+  "increment": "",
+  "Войти": "Log in",
   "Главная": "Main",
   "О сайте": "About",
   "Обновить страницу": "Reload page",
@@ -7,5 +10,6 @@
   "Произошла непредвиденная ошибка": "An unexpected error has occurred",
   "Страница не найдена": "Page not found",
   "Тестовый перевод": "Test example",
-  "Язык": "English"
+  "Язык": "English",
+  "Язык (сокращение)": "En"
 }
