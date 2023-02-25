@@ -1,6 +1,8 @@
 {
   "decrement": "",
   "increment": "",
+  "Введите имя": "Enter username",
+  "Введите пароль": "Enter password",
   "Войти": "Log in",
   "Главная": "Main",
   "О сайте": "About",
