@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useState } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
@@ -11,7 +11,9 @@ interface NavbarProps {
   className?: string;
 }
 
-export const Navbar: FC<NavbarProps> = () => {
+export const Navbar = memo((props: NavbarProps) => {
+  const { className } = props;
+
   const { t } = useTranslation();
 
   const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false);
@@ -32,7 +34,7 @@ export const Navbar: FC<NavbarProps> = () => {
 
   if (!authData) {
     return (
-      <div className={classNames(cls.Navbar)}>
+      <div className={classNames(cls.Navbar, {}, [className])}>
         <Button
           theme={ButtonTheme.ClearInverted}
           onClick={onOpenModal}
@@ -49,7 +51,7 @@ export const Navbar: FC<NavbarProps> = () => {
   }
 
   return (
-    <div className={classNames(cls.Navbar)}>
+    <div className={classNames(cls.Navbar, {}, [className])}>
       <Button
         theme={ButtonTheme.ClearInverted}
         onClick={onLogout}
@@ -59,6 +61,6 @@ export const Navbar: FC<NavbarProps> = () => {
       </Button>
     </div>
   );
-};
+});
 
 export default Navbar;

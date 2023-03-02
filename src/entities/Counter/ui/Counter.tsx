@@ -1,11 +1,11 @@
-import { FC } from 'react';
+import { memo } from 'react';
 import { Button } from 'shared/ui/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { counterActions } from '../model/slice/counterSlice';
 import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 
-export const Counter: FC = () => {
+export const Counter = memo(() => {
   const dispatch = useDispatch();
   const counterValue = useSelector(getCounterValue);
   const { t } = useTranslation();
@@ -35,4 +35,4 @@ export const Counter: FC = () => {
       </Button>
     </div>
   );
-};
+});

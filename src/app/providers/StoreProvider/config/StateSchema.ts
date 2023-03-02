@@ -1,10 +1,11 @@
 import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUserName';
-import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
 import {
-  AnyAction, CombinedState, Reducer, ReducersMapObject,
+  AnyAction, Reducer, ReducersMapObject, EnhancedStore, ThunkMiddleware,
 } from '@reduxjs/toolkit';
+import { CombinedState } from 'redux';
+import { ProfileSchema } from 'entities/Profile';
 
 export interface StateSchema {
   counter: CounterSchema,
@@ -12,6 +13,7 @@ export interface StateSchema {
 
   // Асинхронные редюсеры
   loginForm?: LoginSchema,
+  profile?: ProfileSchema,
 }
 
 export type StateSchemaKey = keyof StateSchema;
@@ -23,6 +25,8 @@ export interface ReducerManager {
   remove: (key: StateSchemaKey) => void;
 }
 
-export interface ReduxStoreWithManager extends ToolkitStore<StateSchema> {
+export interface ReduxStoreWithManager extends EnhancedStore<
+  StateSchema, AnyAction, [ThunkMiddleware<StateSchema, AnyAction, undefined>]
+> {
   reducerManager: ReducerManager;
 }
