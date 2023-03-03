@@ -21,7 +21,7 @@ export function useTheme(): UseThemeResult {
   };
 
   return {
-    theme,
+    theme: Theme.Light,
     toggleTheme,
   };
 }

@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { LoginSchema } from 'features/AuthByUserName';
 import { loginActions, loginReducer } from 'features/AuthByUserName/model/slice/loginSlice';
 import { loginByUsername } from 'features/AuthByUserName/model/services/loginByUsername/loginByUsername';

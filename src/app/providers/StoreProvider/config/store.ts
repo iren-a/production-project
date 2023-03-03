@@ -35,8 +35,9 @@ export function createReduxStore(
         extraArgument: extraArg,
       },
     }),
-  }) as ReduxStoreWithManager;
+  });
 
+  // @ts-ignore
   store.reducerManager = reducerManager;
 
   return store;
