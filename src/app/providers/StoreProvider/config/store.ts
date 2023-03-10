@@ -3,10 +3,10 @@ import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
 import { $api } from 'shared/api/api';
-import { To } from '@remix-run/router';
+import { To } from 'react-router-dom';
 import { CombinedState, Reducer } from 'redux';
 import { NavigateOptions } from 'react-router';
-import { ReduxStoreWithManager, StateSchema, ThunkExtraArg } from './StateSchema';
+import { StateSchema, ThunkExtraArg } from './StateSchema';
 
 export function createReduxStore(
   initialState?: StateSchema,

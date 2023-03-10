@@ -17,5 +17,5 @@ export const parameters = {
 
 addDecorator(StyleDecorator);
 addDecorator(ThemeDecorator(Theme.Light));
-addDecorator(RouterDecorator);
 addDecorator(StoreDecorator({}));
+addDecorator(RouterDecorator);
