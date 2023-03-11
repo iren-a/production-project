@@ -1,0 +1,82 @@
+import {
+  profileActions, profileReducer, ProfileSchema, updateProfileData, ValidateProfileError,
+} from 'entities/Profile';
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
+
+const data = {
+  username: 'admin',
+  age: 20,
+  country: Country.Kazakhstan,
+  first: 'Ivan',
+  lastname: 'Ivanov',
+  city: 'Test',
+  currency: Currency.USD,
+};
+
+describe('profileSlice.test', () => {
+  test('test set readonly', () => {
+    const state: DeepPartial<ProfileSchema> = { readonly: false };
+    expect(profileReducer(
+      state as ProfileSchema,
+      profileActions.setReadonly(true),
+    )).toEqual({ readonly: true });
+  });
+
+  test('test cancel edit', () => {
+    const state: DeepPartial<ProfileSchema> = { data, form: { username: 'test' } };
+
+    expect(profileReducer(
+      state as ProfileSchema,
+      profileActions.cancelEdit(),
+    )).toEqual({
+      readonly: true,
+      form: data,
+      data,
+      validateErrors: undefined,
+    });
+  });
+
+  test('test update profile', () => {
+    const state: DeepPartial<ProfileSchema> = { form: { username: '123' } };
+
+    expect(profileReducer(
+      state as ProfileSchema,
+      profileActions.updateProfile({ username: '123456' }),
+    )).toEqual({
+      form: { username: '123456' },
+    });
+  });
+
+  test('test update profile service pending', () => {
+    const state: DeepPartial<ProfileSchema> = {
+      isLoading: false,
+      validateErrors: [ValidateProfileError.SERVER_ERROR],
+    };
+
+    expect(profileReducer(
+      state as ProfileSchema,
+      updateProfileData.pending,
+    )).toEqual({
+      validateErrors: undefined,
+      isLoading: true,
+    });
+  });
+
+  test('test update profile service fulfilled', () => {
+    const state: DeepPartial<ProfileSchema> = {
+      isLoading: true,
+    };
+
+    expect(profileReducer(
+      state as ProfileSchema,
+      updateProfileData.fulfilled(data, ''),
+    )).toEqual({
+      isLoading: false,
+      readonly: true,
+      data,
+      form: data,
+      validateErrors: undefined,
+    });
+  });
+});

@@ -3,12 +3,17 @@
   "Ваша фамилия": "Lastname",
   "Ваше имя": "Firstname",
   "Город": "City",
+  "Данные не указаны": "No data",
+  "Имя и фамилия обязательны": "First and last name are required",
   "Имя пользователя": "Username",
+  "Некорректная страна": "Incorrect country",
+  "Некорректный возраст": "Incorrect age",
   "Отменить": "Cancel",
   "Попробуйте обновить страницу": "Try to reload the page",
   "Произошла ошибка при загрузке профиля": "An error occurred while loading the profile",
   "Профиль": "Profile",
   "Редактировать": "Edit",
+  "Серверная ошибка при сохранении": "Server error on save",
   "Сохранить": "Save",
   "Ссылка на аватар": "Link to avatar"
 }
