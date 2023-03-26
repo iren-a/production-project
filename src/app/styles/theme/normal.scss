@@ -1,8 +1,16 @@
 :root {
-  --bg-color: #e8e8ea;
+  --bg-color: #fcfcfc;
   --inverted-bg-color: #090949;
   --primary-color: #0232c2;
   --secondary-color: #0449e0;
   --inverted-primary-color: #04ff04;
   --inverted-secondary-color: #049604;
+
+  // skeleton
+  --skeleton-color: #eee;
+  --skeleton-gradient-start-color: #ececec;
+  --skeleton-gradient-finish-color: #f5f5f5;
+
+  // code
+  --code-bg: #fff;
 }
