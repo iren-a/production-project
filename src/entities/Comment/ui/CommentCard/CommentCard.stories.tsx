@@ -1,16 +1,31 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { CommentType } from 'entities/Comment';
 import { CommentCard } from './CommentCard';
 
 export default {
-  title: 'shared/CommentCard',
+  title: 'entities/CommentCard',
   component: CommentCard,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
 } as ComponentMeta<typeof CommentCard>;
 
+const comment: CommentType = {
+  id: '1',
+  text: 'hello world',
+  user: { id: '1', username: 'Ivan' },
+};
+
 const Template: ComponentStory<typeof CommentCard> = (args) => <CommentCard {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  comment,
+};
+
+export const Loading = Template.bind({});
+Loading.args = {
+  comment,
+  isLoading: true,
+};

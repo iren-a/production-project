@@ -5,6 +5,7 @@ import {
   MemoryRouter,
   BrowserRouter,
 } from 'react-router-dom';
+import { Suspense } from 'react';
 
 export const RouterDecorator = (
   StoryComponent: Story,
@@ -12,17 +13,21 @@ export const RouterDecorator = (
 ) => {
   if (!routerParams) {
     return (
-      <BrowserRouter>
-        <StoryComponent />
-      </BrowserRouter>
+      <Suspense fallback="">
+        <BrowserRouter>
+          <StoryComponent />
+        </BrowserRouter>
+      </Suspense>
     );
   }
 
   return (
-    <MemoryRouter initialEntries={[routerParams.route]}>
-      <Routes>
-        <Route path={routerParams.path} element={<StoryComponent />} />
-      </Routes>
-    </MemoryRouter>
+    <Suspense fallback="">
+      <MemoryRouter initialEntries={[routerParams.route]}>
+        <Routes>
+          <Route path={routerParams.path} element={<StoryComponent />} />
+        </Routes>
+      </MemoryRouter>
+    </Suspense>
   );
 };

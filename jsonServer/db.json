@@ -19,7 +19,9 @@
       "img": "https://www.androidfreeware.net/software_images/jsnews-javascript-news.thumb.png",
       "view": 1022,
       "createdAt": "10.03.2023",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -70,6 +72,30 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "привет",
+      "id": "sqx_Hq9"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "hallo",
+      "id": "1NXb0eR"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "fff",
+      "id": "TUMNE4q"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "дратути",
+      "id": "SECBow3"
     }
   ],
   "users": [
@@ -86,14 +112,28 @@
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
     }
   ],
-  "profile": {
-    "first": "Иван",
-    "lastname": "Петров",
-    "age": 22,
-    "currency": "EUR",
-    "country": "Kazakhstan",
-    "city": "Moscow",
-    "username": "admin",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Иван",
+      "lastname": "Петров",
+      "age": 22,
+      "currency": "EUR",
+      "country": "Kazakhstan",
+      "city": "Moscow",
+      "username": "admin",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    },
+    {
+      "id": "2",
+      "first": "Василий",
+      "lastname": "Иванов",
+      "age": 26,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "user",
+      "avatar": "https://e-news.su/uploads/posts/2022-04/1650919998_d091d18bd181d182d180d0bed0b2_d0a5d0b0d0bad0b5d180.jpeg"
+    }
+  ]
 }

@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
@@ -14,13 +14,16 @@ import {
   getProfileValidateErrors,
   profileActions,
   ProfileCard,
-  profileReducer, ValidateProfileError,
+  profileReducer,
+  ValidateProfileError,
 } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = { profile: profileReducer };
@@ -33,6 +36,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
   const { className } = props;
 
   const { t } = useTranslation('profile');
+  const { id } = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
@@ -48,12 +52,12 @@ const ProfilePage = memo((props: ProfilePageProps) => {
     [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректная страна', { ns: 'profile' }),
   };
 
-  useEffect(() => {
-    if (__PROJECT__ === 'storybook') {
+  useInitialEffect(() => {
+    if (!id) {
       return;
     }
-    dispatch(fetchProfileData());
-  }, [dispatch]);
+    dispatch(fetchProfileData(id));
+  });
 
   const onChangeFirstname = useCallback((value?: string) => {
     dispatch(profileActions.updateProfile({ first: value || '' }));
@@ -88,7 +92,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
   }, [dispatch]);
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+    <DynamicModuleLoader reducers={reducers}>
       <div className={classNames('', {}, [className])}>
         <ProfilePageHeader />
         {validateErrors?.length && validateErrors.map((err) => (
