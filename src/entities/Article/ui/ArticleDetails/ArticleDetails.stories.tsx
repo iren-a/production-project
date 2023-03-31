@@ -5,7 +5,7 @@ import { Article, ArticleBlockType, ArticleType } from 'entities/Article/model/t
 import { ArticleDetails } from './ArticleDetails';
 
 export default {
-  title: 'entities/ArticleDetails',
+  title: 'entities/Article/ArticleDetails',
   component: ArticleDetails,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -20,6 +20,10 @@ const article: Article = {
   subtitle: 'Что нового в JS в 2023 году?',
   img: 'https://www.androidfreeware.net/software_images/jsnews-javascript-news.thumb.png',
   view: 1022,
+  user: {
+    id: '1',
+    username: 'Ivan',
+  },
   createdAt: '10.03.2023',
   type: [ArticleType.IT],
   blocks: [

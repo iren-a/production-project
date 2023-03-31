@@ -6,6 +6,10 @@ const data: Article = {
   id: '1',
   title: 'title',
   subtitle: 'subtitle',
+  user: {
+    id: '1',
+    username: 'Ivan',
+  },
   img: 'img',
   view: 100,
   createdAt: '',

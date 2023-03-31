@@ -8,6 +8,10 @@ const data: Article = {
   title: 'title',
   subtitle: 'subtitle',
   img: 'img',
+  user: {
+    id: '1',
+    username: 'Ivan',
+  },
   view: 100,
   createdAt: '',
   type: [ArticleType.IT],

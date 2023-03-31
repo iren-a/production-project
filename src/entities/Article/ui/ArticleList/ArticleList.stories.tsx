@@ -1,25 +1,12 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Article } from 'entities/Article';
-import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import ArticleDetailsPage from './ArticleDetailsPage';
-
-export default {
-  title: 'pages/ArticleDetailsPage',
-  component: ArticleDetailsPage,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-  parameters: {
-    routerParams: {
-      path: '/articles/:id',
-      route: '/articles/1',
-    },
-  },
-} as ComponentMeta<typeof ArticleDetailsPage>;
-
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ArticleList } from './ArticleList';
+import {
+  Article,
+  ArticleBlockType,
+  ArticleType,
+  ArticleView,
+} from '../../model/types/article';
 
 const article: Article = {
   id: '1',
@@ -65,12 +52,47 @@ const article: Article = {
   ],
 };
 
-export const Primary = Template.bind({});
-Primary.args = {};
-Primary.decorators = [
-  StoreDecorator({
-    articleDetails: {
-      data: article,
-    },
-  }),
-];
+const articles = new Array(16)
+  .fill(null)
+  .map((item, i) => (
+    {
+      ...article,
+      id: i.toString(),
+    }
+  ));
+
+export default {
+  title: 'entities/Article/ArticleList',
+  component: ArticleList,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
+} as ComponentMeta<typeof ArticleList>;
+
+const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
+
+export const LoadingBig = Template.bind({});
+LoadingBig.args = {
+  articles: [],
+  isLoading: true,
+  view: ArticleView.BIG,
+};
+
+export const LoadingSmall = Template.bind({});
+LoadingSmall.args = {
+  articles: [],
+  isLoading: true,
+  view: ArticleView.SMALL,
+};
+
+export const ListBig = Template.bind({});
+ListBig.args = {
+  articles,
+  view: ArticleView.BIG,
+};
+
+export const ListSmall = Template.bind({});
+ListSmall.args = {
+  articles,
+  view: ArticleView.SMALL,
+};
