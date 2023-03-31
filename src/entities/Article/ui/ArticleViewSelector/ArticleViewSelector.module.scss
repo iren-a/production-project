@@ -1,0 +1,12 @@
+.ArticleViewSelector {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  fill: var(--secondary-color);
+}
+
+.selected {
+  fill: var(--primary-color);
+}
