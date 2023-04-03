@@ -6,7 +6,11 @@ import { RequireAuth } from 'app/providers/router/ui/RequireAuth';
 
 const AppRouter = () => {
   const renderWithWrapper = useCallback((route: AppRoutesProps) => {
-    const element = <div className="page-wrapper">{route.element}</div>;
+    const element = (
+      <Suspense fallback={<PageLoader />}>
+        {route.element}
+      </Suspense>
+    );
 
     return (
       <Route
@@ -22,13 +26,11 @@ const AppRouter = () => {
   }, []);
 
   return (
-    <Suspense fallback={<PageLoader />}>
-      <Routes>
-        {
-          Object.values(routeConfig).map(renderWithWrapper)
-        }
-      </Routes>
-    </Suspense>
+    <Routes>
+      {
+        Object.values(routeConfig).map(renderWithWrapper)
+      }
+    </Routes>
   );
 };
 
