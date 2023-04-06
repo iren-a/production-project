@@ -24,7 +24,7 @@ describe('initArticlesPage.test', () => {
 
     expect(thunk.dispatch).toBeCalledTimes(4);
     expect(articlesPageActions.initState).toHaveBeenCalled();
-    expect(fetchArticlesList).toBeCalledWith({ page: 1 });
+    expect(fetchArticlesList).toBeCalledWith();
   });
 
   test('state is already not initialized', async () => {

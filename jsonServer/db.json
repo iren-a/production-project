@@ -15,13 +15,14 @@
     {
       "id": "1",
       "title": "Javascript news",
-      "subtitle": "Что нового в JS в 2023 году?",
+      "subtitle": "Что нового в JS в 2022 году?",
       "img": "https://www.androidfreeware.net/software_images/jsnews-javascript-news.thumb.png",
-      "view": 1022,
-      "createdAt": "10.03.2023",
+      "view": 142,
+      "createdAt": "10.01.2022",
       "userId": "1",
       "type": [
-        "IT"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -57,13 +58,13 @@
     {
       "id": "2",
       "title": "Python news",
-      "subtitle": "Что нового в Python в 2023 году?",
+      "subtitle": "Что нового в Python в 2022 году?",
       "img": "https://banner2.cleanpng.com/20180720/ur/kisspng-logo-brand-font-python-5b51d2136c4285.3422375115320888514434.jpg",
-      "view": 1022,
-      "createdAt": "10.03.2023",
+      "view": 4002,
+      "createdAt": "10.04.2022",
       "userId": "1",
       "type": [
-        "IT"
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -99,13 +100,14 @@
     {
       "id": "3",
       "title": "Kotlin news",
-      "subtitle": "Что нового в Kotlin в 2023 году?",
+      "subtitle": "Что нового в Kotlin в 2022 году?",
       "img": "https://avatars.mds.yandex.net/i?id=921274104202da661099022d86f3d01278b42a81-9225702-images-thumbs&n=13",
-      "view": 1022,
-      "createdAt": "10.03.2023",
+      "view": 5055,
+      "createdAt": "15.02.2022",
       "userId": "1",
       "type": [
-        "IT"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -147,7 +149,8 @@
       "createdAt": "10.03.2023",
       "userId": "1",
       "type": [
-        "IT"
+        "IT",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -189,7 +192,7 @@
       "createdAt": "10.03.2023",
       "userId": "1",
       "type": [
-        "IT"
+        "ECONOMICS"
       ],
       "blocks": [
         {

@@ -1,5 +1,7 @@
 import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Text } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
@@ -29,6 +31,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
     view = ArticleView.SMALL,
   } = props;
 
+  const { t } = useTranslation('article');
+
   const renderArticle = useCallback((article: Article) => (
     <ArticleListItem
       key={article.id}
@@ -37,6 +41,14 @@ export const ArticleList = memo((props: ArticleListProps) => {
       className={cls.card}
     />
   ), [view]);
+
+  if (!isLoading && !articles.length) {
+    return (
+      <div className={classNames('', {}, [className, cls[view]])}>
+        <Text title={t('Статьи не найдены', { ns: 'article' })} />
+      </div>
+    );
+  }
 
   return (
     <div className={classNames('', {}, [className, cls[view]])}>

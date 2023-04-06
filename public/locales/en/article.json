@@ -1,9 +1,22 @@
 {
+  "IT": "IT",
+  "Все статьи": "All articles",
   "Главная страница": "Main page",
   "Комментарии": "Comments",
   "Назад к списку": "Back to list",
+  "Наука": "Science",
+  "Поиск": "Search",
   "Произошла ошибка при загрузке статьи": "An error occurred while loading the article",
+  "Сортировать по": "Sort by",
+  "Статьи не найдены": "",
   "Статья": "",
   "Статья не найдена": "Article not found",
-  "Читать далее": "Read more..."
+  "Читать далее": "Read more...",
+  "Экономика": "Economics",
+  "возрастанию": "ascending",
+  "дате создания": "created date",
+  "названию": "title",
+  "по": "by",
+  "просмотрам": "views",
+  "убыванию": "descending"
 }
