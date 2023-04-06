@@ -18,3 +18,18 @@
 .content-page {
   display: flex;
 }
+
+*::-webkit-scrollbar {
+  width: 8px; /* в основном для вертикальных полос прокрутки */
+  height: 8px; /* в основном для горизонтальных полос прокрутки */
+}
+
+*::-webkit-scrollbar-thumb { /* плашка-бегунок */
+  background: var(--inverted-primary-color);
+  border-radius: 20px;
+  border: 2px solid var(--primary-color);
+}
+
+*::-webkit-scrollbar-track { /* фон */
+  background: var(--card-bg);
+}

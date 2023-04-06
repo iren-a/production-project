@@ -1,9 +1,9 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails, ArticleList } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Text } from 'shared/ui/Text/Text';
+import { Text, TextSize } from 'shared/ui/Text/Text';
 import { CommentList } from 'entities/Comment';
 import {
   DynamicModuleLoader,
@@ -16,15 +16,18 @@ import { AddCommentForm } from 'features/AddCommentForm';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/Page';
+import { articleDetailsPageReducer } from '../model/slices';
+import { getArticleRecommendations } from '../model/slices/articleDetailsRecommendationsSlice';
+import { getArticleRecommendationsIsLoading } from '../model/selectors/recommendations';
+import {
+  fetchArticleRecommendations,
+} from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import {
   fetchCommentsByArticleId,
 } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleCommentsIsLoading } from '../model/selectors/comments';
-import {
-  articleDetailsCommentsReducer,
-  getArticleComments,
-} from '../model/slices/articleDetailsCommentsSlice';
+import { getArticleComments } from '../model/slices/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -32,7 +35,7 @@ interface ArticleDetailsPageProps {
 }
 
 const reducers: ReducersList = {
-  articleDetailsComments: articleDetailsCommentsReducer,
+  articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
@@ -44,9 +47,12 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
   const navigate = useNavigate();
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+  const recommendations = useSelector(getArticleRecommendations.selectAll);
+  const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
+    dispatch(fetchArticleRecommendations());
   });
 
   const onBackToList = useCallback(() => {
@@ -75,7 +81,22 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
           {t('Назад к списку', { ns: 'article' })}
         </Button>
         <ArticleDetails id={id} />
-        <Text className={cls.commentTitle} title={t('Комментарии', { ns: 'article' })} />
+        <Text
+          size={TextSize.L}
+          className={cls.commentTitle}
+          title={t('Рекомендуем', { ns: 'article' })}
+        />
+        <ArticleList
+          articles={recommendations}
+          isLoading={recommendationsIsLoading}
+          className={cls.recommendations}
+          target="_blank"
+        />
+        <Text
+          size={TextSize.L}
+          className={cls.commentTitle}
+          title={t('Комментарии', { ns: 'article' })}
+        />
         <AddCommentForm onSendComment={onSendComment} />
         <CommentList
           comments={comments}
