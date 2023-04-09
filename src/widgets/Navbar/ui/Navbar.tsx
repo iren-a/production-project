@@ -1,10 +1,13 @@
 import React, { memo, useCallback, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Text, TextTheme } from 'shared//ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { LoginModal } from 'features/AuthByUserName';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -51,7 +54,18 @@ export const Navbar = memo((props: NavbarProps) => {
   }
 
   return (
-    <div className={classNames(cls.Navbar, {}, [className])}>
+    <header className={classNames(cls.Navbar, {}, [className])}>
+      <Text
+        className={cls.appName}
+        title={t('App')}
+        theme={TextTheme.Inverted}
+      />
+      <AppLink
+        to={RoutePath.articleCreate}
+        theme={AppLinkTheme.Inverted}
+      >
+        {t('Создать статью')}
+      </AppLink>
       <Button
         theme={ButtonTheme.ClearInverted}
         onClick={onLogout}
@@ -59,7 +73,7 @@ export const Navbar = memo((props: NavbarProps) => {
       >
         {t('Выйти')}
       </Button>
-    </div>
+    </header>
   );
 });
 
