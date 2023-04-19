@@ -1,4 +1,4 @@
-import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
+import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from './articleDetailsSlice';
 import { Article, ArticleType } from '../types/article';
 import { ArticleDetailsSchema } from '../types/articleDetailsSchema';

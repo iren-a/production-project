@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { CommentType } from 'entities/Comment';
+import { CommentType } from '../../model/types/comment';
 import { CommentList } from './CommentList';
 
 export default {

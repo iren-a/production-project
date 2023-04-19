@@ -1,4 +1,4 @@
-import { Loader } from 'shared/ui/Loader/ui/Loader';
+import { Loader } from './ui/Loader';
 
 export {
   Loader,
