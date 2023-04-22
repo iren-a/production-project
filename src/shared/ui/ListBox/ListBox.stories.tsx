@@ -10,6 +10,20 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100vh',
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
 } as ComponentMeta<typeof ListBox>;
 
 const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />;
@@ -24,7 +38,6 @@ const items = [
 export const Primary = Template.bind({});
 Primary.args = {
   label: 'Выберите значение',
-  onChange: () => {},
   items,
 };
 
@@ -32,14 +45,12 @@ export const WithDefaultValue = Template.bind({});
 WithDefaultValue.args = {
   label: 'Выберите значение',
   defaultValue: '2',
-  onChange: () => {},
   items,
 };
 
 export const Dark = Template.bind({});
 Dark.args = {
   label: 'Выберите значение',
-  onChange: () => {},
   items,
 };
 Dark.decorators = [ThemeDecorator(Theme.Dark)];
@@ -48,7 +59,38 @@ export const DarkWithDefaultValue = Template.bind({});
 DarkWithDefaultValue.args = {
   label: 'Выберите значение',
   defaultValue: '2',
-  onChange: () => {},
   items,
 };
 DarkWithDefaultValue.decorators = [ThemeDecorator(Theme.Dark)];
+
+export const TopLeft = Template.bind({});
+TopLeft.args = {
+  direction: 'top-left',
+  defaultValue: '2',
+  label: 'Выберите значение',
+  items,
+};
+
+export const TopRight = Template.bind({});
+TopRight.args = {
+  direction: 'top-right',
+  defaultValue: '2',
+  label: 'Выберите значение',
+  items,
+};
+
+export const BottomLeft = Template.bind({});
+BottomLeft.args = {
+  direction: 'bottom-left',
+  defaultValue: '2',
+  label: 'Выберите значение',
+  items,
+};
+
+export const BottomRight = Template.bind({});
+BottomRight.args = {
+  direction: 'bottom-right',
+  defaultValue: '2',
+  label: 'Выберите значение',
+  items,
+};
