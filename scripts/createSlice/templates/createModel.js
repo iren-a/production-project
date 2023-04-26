@@ -38,7 +38,7 @@ module.exports = async (layer, sliceName) => {
   const createSchemaType = async () => {
     try {
       await fs.writeFile(
-        resolveModelPath('types', `${sliceName}Schema.ts`),
+        resolveModelPath('types', `${sliceName.toLowerCase()}Schema.ts`),
         schemaTypeTemplate(sliceName),
       );
     } catch (e) {
