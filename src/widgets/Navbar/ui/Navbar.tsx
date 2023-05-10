@@ -5,7 +5,9 @@ import { Text, TextTheme } from 'shared//ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { LoginModal } from 'features/AuthByUserName';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData, userActions } from 'entities/User';
+import {
+  getUserAuthData, isUserAdmin, isUserManager, userActions,
+} from 'entities/User';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
@@ -24,6 +26,8 @@ export const Navbar = memo((props: NavbarProps) => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false);
   const authData = useSelector(getUserAuthData);
   const dispatch = useDispatch();
+  const isAdmin = useSelector(isUserAdmin);
+  const isManager = useSelector(isUserManager);
 
   const onOpenModal = useCallback(() => {
     setIsAuthModalOpen(true);
@@ -36,6 +40,8 @@ export const Navbar = memo((props: NavbarProps) => {
   const onLogout = useCallback(() => {
     dispatch(userActions.logout());
   }, [dispatch]);
+
+  const isAdminPanelAvailable = isAdmin || isManager;
 
   if (!authData) {
     return (
@@ -72,6 +78,13 @@ export const Navbar = memo((props: NavbarProps) => {
         className={cls.dropdown}
         trigger={<Avatar size={30} src={authData.avatar} />}
         items={[
+          ...(isAdminPanelAvailable
+            ? [{
+              value: 'admin',
+              content: t('Админка'),
+              href: RoutePath.adminPanel,
+            }]
+            : []),
           {
             value: 'profile',
             content: t('Профиль'),
