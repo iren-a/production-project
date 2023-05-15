@@ -13,6 +13,12 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  parameters: {
+    routerParams: {
+      path: '/profile/:id',
+      route: '/profile/1',
+    },
+  },
 } as ComponentMeta<typeof ProfilePage>;
 
 const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
