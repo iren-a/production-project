@@ -4,15 +4,15 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Text, TextTheme } from 'shared//ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { LoginModal } from 'features/AuthByUserName';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  getUserAuthData, isUserAdmin, isUserManager, userActions,
-} from 'entities/User';
+import { useSelector } from 'react-redux';
+import { getUserAuthData } from 'entities/User';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { HStack } from 'shared/ui/Stack';
 import { NotificationButton } from 'features/NotificationButton';
 import { AvatarDropdown } from 'features/AvatarDropdown';
+import { Drawer } from 'shared/ui/Drawer/Drawer';
+import { NotificationList } from 'entities/Notification';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {

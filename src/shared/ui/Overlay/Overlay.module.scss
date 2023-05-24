@@ -1,0 +1,12 @@
+.Overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: var(--overlay-color);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  cursor: pointer;
+  z-index: var(--overlay-z-index);
+}
