@@ -1,7 +1,6 @@
-import React, {
-  FC, ReactNode, useCallback, useEffect, useRef, useState,
-} from 'react';
+import React, { FC, ReactNode } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { useModal } from 'shared/lib/hooks/useModal/useModal';
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
@@ -14,8 +13,6 @@ interface ModalProps {
   lazy?: boolean;
 }
 
-const ANIMATION_DELAY_MS = 300;
-
 export const Modal: FC<ModalProps> = (props) => {
   const {
     className,
@@ -25,42 +22,11 @@ export const Modal: FC<ModalProps> = (props) => {
     lazy,
   } = props;
 
-  const [isClosing, setIsClosing] = useState<boolean>(false);
-  const [isMounted, setIsMounted] = useState<boolean>(false);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
-
-  useEffect(() => {
-    if (isOpen) {
-      setIsMounted(true);
-    }
-  }, [isOpen]);
-
-  const closeHandler = useCallback(() => {
-    if (onClose) {
-      setIsClosing(true);
-      timerRef.current = setTimeout(() => {
-        onClose();
-        setIsClosing(false);
-      }, ANIMATION_DELAY_MS);
-    }
-  }, [onClose]);
-
-  const onKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      closeHandler();
-    }
-  }, [closeHandler]);
-
-  useEffect(() => {
-    if (isOpen) {
-      window.addEventListener('keydown', onKeyDown);
-    }
-
-    return () => {
-      clearTimeout(timerRef.current);
-      window.removeEventListener('keydown', onKeyDown);
-    };
-  }, [isOpen, onKeyDown]);
+  const { isClosing, isMounted, close } = useModal({
+    onClose,
+    isOpen,
+    animationDelay: 300,
+  });
 
   const mods: Mods = {
     [cls.opened]: isOpen,
@@ -74,7 +40,7 @@ export const Modal: FC<ModalProps> = (props) => {
   return (
     <Portal>
       <div className={classNames(cls.Modal, mods, ['app-modal', className])}>
-        <Overlay onClick={closeHandler} />
+        <Overlay onClick={close} />
         <div className={cls.content}>
           {children}
         </div>
