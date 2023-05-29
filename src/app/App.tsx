@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
-import { AppRouter } from 'app/providers/router';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Navbar } from 'widgets/Navbar';
-import { Sidebar } from 'widgets/Sidebar';
 import { useDispatch, useSelector } from 'react-redux';
-import { userActions } from 'entities/User';
-import { useTheme } from 'app/providers/ThemeProvider';
-import { getIsUserInit } from 'entities/User/model/selectors/getIsUserInit/getIsUserInit';
+import { AppRouter } from '@/app/providers/router';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Navbar } from '@/widgets/Navbar';
+import { Sidebar } from '@/widgets/Sidebar';
+import { userActions } from '@/entities/User';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import { getIsUserInit } from '@/entities/User/model/selectors/getIsUserInit/getIsUserInit';
 
 const App = () => {
   const { theme } = useTheme();

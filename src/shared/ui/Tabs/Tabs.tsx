@@ -1,6 +1,6 @@
 import { ReactNode, useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { typedMemo } from 'shared/lib/typedMemo/typedMemo';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { typedMemo } from '@/shared/lib/typedMemo/typedMemo';
 import { Card, CardTheme } from '../Card/Card';
 import cls from './Tabs.module.scss';
 
