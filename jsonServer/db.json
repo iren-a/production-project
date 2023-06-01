@@ -1683,5 +1683,41 @@
       "username": "user",
       "avatar": "https://e-news.su/uploads/posts/2022-04/1650919998_d091d18bd181d182d180d0bed0b2_d0a5d0b0d0bad0b5d180.jpeg"
     }
+  ],
+  "article-ratings": [
+    {
+      "id": 1,
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": 1,
+      "rate": 5,
+      "feedback": "Отличная статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "userId": "1",
+      "articleId": "2",
+      "rate": 3,
+      "id": 2
+    },
+    {
+      "userId": "1",
+      "articleId": "4",
+      "rate": 5,
+      "feedback": "super",
+      "id": 3
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "rate": 3,
+      "feedback": "",
+      "id": 4
+    }
   ]
 }
