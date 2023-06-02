@@ -47,7 +47,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error',
     'no-param-reassign': 'off',
     'no-undef': 'off',
-    'i-fsd-path-checker/path-checker': 'error',
+    'i-fsd-path-checker/path-checker': ['error', { alias: '@' }],
   },
   globals: {
     __IS_DEV__: true,
