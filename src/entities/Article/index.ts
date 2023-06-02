@@ -16,6 +16,9 @@ export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
 export { getArticleDetailsData } from './model/selectors/articleDetails';
 export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
 export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';
-export { ArticleView } from './model/consts/consts';
-export { ArticleType } from './model/consts/consts';
-export { ArticleSortField } from './model/consts/consts';
+export {
+  ArticleView,
+  ArticleType,
+  ArticleSortField,
+  ArticleBlockType,
+} from './model/consts/consts';

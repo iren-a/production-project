@@ -48,6 +48,7 @@ module.exports = {
     'no-param-reassign': 'off',
     'no-undef': 'off',
     'i-fsd-path-checker/path-checker': ['error', { alias: '@' }],
+    'i-fsd-path-checker/public-api-imports': ['error', { alias: '@' }],
   },
   globals: {
     __IS_DEV__: true,
