@@ -15,7 +15,19 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 
   const svgLoader = {
     test: /\.svg$/i,
-    use: ['@svgr/webpack'],
+    use: {
+      loader: '@svgr/webpack',
+      options: {
+        svgoConfig: {
+          plugins: [
+            {
+              name: 'removeViewBox',
+              active: false,
+            },
+          ],
+        },
+      },
+    },
   };
 
   const cssLoader = buildCssLoader(options.isDev);
