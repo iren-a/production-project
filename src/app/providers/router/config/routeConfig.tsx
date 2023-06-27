@@ -11,7 +11,7 @@ import { NotFoundPage } from '@/pages/NotFoundPage';
 import {
   AppRoutes,
   getRouteAbout,
-  getRouteAdminPanel,
+  getRouteAdmin,
   getRouteArticleCreate,
   getRouteArticleDetails,
   getRouteArticleEdit,
@@ -57,7 +57,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     authOnly: true,
   },
   [AppRoutes.AdminPanel]: {
-    path: getRouteAdminPanel(),
+    path: getRouteAdmin(),
     element: <AdminPanelPage />,
     authOnly: true,
     roles: [UserRole.MANAGER, UserRole.ADMIN],
