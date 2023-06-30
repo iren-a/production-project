@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
+import Img from '@/shared/assets/tests/storybook.jpeg';
 import { ProfileCard } from './ProfileCard';
 
 export default {
@@ -24,7 +25,7 @@ Primary.args = {
     lastname: 'Ivanov',
     city: 'Test',
     currency: Currency.USD,
-    avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+    avatar: Img,
   },
 };
 
