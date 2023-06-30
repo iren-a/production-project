@@ -1,4 +1,5 @@
 import React from 'react';
+import withMock from 'storybook-addon-mock';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Article, ArticleType, ArticleBlockType } from '@/entities/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
@@ -16,6 +17,7 @@ export default {
       route: '/articles/1',
     },
   },
+  decorators: [withMock],
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
 const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
@@ -66,6 +68,28 @@ const article: Article = {
 
 export const Primary = Template.bind({});
 Primary.args = {};
+Primary.parameters = {
+  mockData: [
+    {
+      url: `${__API__}/articles?_limit=3`,
+      method: 'GET',
+      status: 200,
+      response: [
+        { ...article, id: '1' },
+        { ...article, id: '2' },
+        { ...article, id: '3' },
+      ],
+    },
+    {
+      url: `${__API__}/article-ratings?articleId=1`,
+      method: 'GET',
+      status: 200,
+      response: {
+        rate: 3,
+      },
+    },
+  ],
+};
 Primary.decorators = [
   StoreDecorator({
     articleDetails: {
