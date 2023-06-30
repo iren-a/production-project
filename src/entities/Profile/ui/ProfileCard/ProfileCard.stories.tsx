@@ -24,7 +24,7 @@ Primary.args = {
     lastname: 'Ivanov',
     city: 'Test',
     currency: Currency.USD,
-    avatar: 'storybook.jpeg',
+    avatar: 'assets/storybook.jpeg',
   },
 };
 

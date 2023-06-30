@@ -3,7 +3,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
 import ArticlesPage from './ArticlesPage';
 import { Article, ArticleType } from '@/entities/Article';
-import Img from '@/shared/assets/tests/storybook.jpeg';
 
 export default {
   title: 'pages/ArticlePage/ArticlesPage',
@@ -20,7 +19,7 @@ const article: Article = {
   id: '1',
   title: 'title',
   subtitle: 'subtitle',
-  img: Img,
+  img: 'assets/storybook.jpeg',
   user: {
     id: '1',
     username: 'Ivan',
