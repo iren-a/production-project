@@ -26,6 +26,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     if (/svg/.test(rule.test as string)) {
       return { ...rule, exclude: /\.svg$/i };
     }
+
     return rule;
   });
 
@@ -33,6 +34,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     test: /\.svg$/i,
     use: ['@svgr/webpack'],
   });
+
   config!.module!.rules!.push(buildCssLoader(true));
 
   config!.plugins!.push(new webpack.DefinePlugin({
