@@ -26,13 +26,13 @@ import {
 } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleBlock } from '../../model/types/article';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
-import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from '../../model/selectors/articleDetails';
 import cls from './ArticleDetails.module.scss';
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 
 interface ArticleDetailsProps {
   className?: string;
