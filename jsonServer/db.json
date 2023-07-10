@@ -1555,6 +1555,32 @@
           "title": "Рисунок 15. Alert в Adobe Reader"
         }
       ]
+    },
+    {
+      "title": "Javascript news",
+      "subtitle": "Что нового в JS в 2023 году?",
+      "img": "https://www.androidfreeware.net/software_images/jsnews-javascript-news.thumb.png",
+      "view": 1022,
+      "createdAt": "10.03.2023",
+      "userId": "1",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "wL-1Sjc"
+    },
+    {
+      "title": "Javascript news",
+      "subtitle": "Что нового в JS в 2023 году?",
+      "img": "https://www.androidfreeware.net/software_images/jsnews-javascript-news.thumb.png",
+      "view": 1022,
+      "createdAt": "10.03.2023",
+      "userId": "1",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "qm9d1dW"
     }
   ],
   "comments": [
@@ -1629,6 +1655,12 @@
       "userId": "1",
       "text": "d",
       "id": "mJlUaNB"
+    },
+    {
+      "articleId": "qm9d1dW",
+      "userId": "4",
+      "text": "text",
+      "id": "t9OWjGR"
     }
   ],
   "users": [
@@ -1660,11 +1692,11 @@
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg3"
     },
     {
-      "id": "5",
+      "id": "4",
       "username": "testuser",
       "password": "123",
       "roles": [
-        "MANAGER"
+        "USER"
       ],
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg3"
     }
@@ -1690,6 +1722,28 @@
       "country": "Russia",
       "city": "Moscow",
       "username": "user",
+      "avatar": "https://e-news.su/uploads/posts/2022-04/1650919998_d091d18bd181d182d180d0bed0b2_d0a5d0b0d0bad0b5d180.jpeg"
+    },
+    {
+      "id": "3",
+      "first": "Василий",
+      "lastname": "Иванов",
+      "age": 26,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "user",
+      "avatar": "https://e-news.su/uploads/posts/2022-04/1650919998_d091d18bd181d182d180d0bed0b2_d0a5d0b0d0bad0b5d180.jpeg"
+    },
+    {
+      "id": "4",
+      "first": "test",
+      "lastname": "user",
+      "age": 26,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "testuser",
       "avatar": "https://e-news.su/uploads/posts/2022-04/1650919998_d091d18bd181d182d180d0bed0b2_d0a5d0b0d0bad0b5d180.jpeg"
     }
   ],

@@ -60,6 +60,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
     <>
       <Text title={feedbackTitle} />
       <Input
+        data-testid="RatingCard.Input"
         placeholder={t('Ваш отзыв')}
         value={feedback}
         onChange={setFeedback}
@@ -68,7 +69,11 @@ export const RatingCard = memo((props: RatingCardProps) => {
   );
 
   return (
-    <Card fullWidth className={className}>
+    <Card
+      data-testid="RatingCard"
+      fullWidth
+      className={className}
+    >
       <VStack fullWidth align="center" gap="8">
         <Text title={starsCount ? t('Спасибо за оценку') : title} />
         <StarRating size={40} selectedStars={starsCount} onSelect={onSelectStars} />
@@ -79,7 +84,12 @@ export const RatingCard = memo((props: RatingCardProps) => {
             <Drawer isOpen={isModalOpen} onClose={cancelHandle} lazy>
               <VStack fullWidth gap="32">
                 {modalContent}
-                <Button onClick={acceptHandle} size={ButtonSize.L} fullWidth>
+                <Button
+                  data-testid="RatingCard.Send"
+                  onClick={acceptHandle}
+                  size={ButtonSize.L}
+                  fullWidth
+                >
                   {t('Отправить')}
                 </Button>
               </VStack>
@@ -90,10 +100,17 @@ export const RatingCard = memo((props: RatingCardProps) => {
               <VStack fullWidth gap="32">
                 {modalContent}
                 <HStack fullWidth gap="16" justify="end">
-                  <Button onClick={cancelHandle} theme={ButtonTheme.OutlineRed}>
+                  <Button
+                    data-testid="RatingCard.Close"
+                    onClick={cancelHandle}
+                    theme={ButtonTheme.OutlineRed}
+                  >
                     {t('Закрыть')}
                   </Button>
-                  <Button onClick={acceptHandle}>
+                  <Button
+                    data-testid="RatingCard.Send"
+                    onClick={acceptHandle}
+                  >
                     {t('Отправить')}
                   </Button>
                 </HStack>
