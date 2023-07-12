@@ -1,6 +1,10 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ArticleBlockType, ArticleType, ArticleView } from '../../model/consts/consts';
+import {
+  ArticleBlockType,
+  ArticleType,
+  ArticleView,
+} from '../../model/consts/consts';
 import { Article } from '../../model/types/article';
 import { ArticleListItem } from './ArticleListItem';
 
@@ -37,7 +41,7 @@ const article: Article = {
     {
       id: '4',
       type: ArticleBlockType.CODE,
-      code: "app.alert(\"Click here\");\n\nthis.submitForm('https://my.url/');",
+      code: 'app.alert("Click here");\n\nthis.submitForm(\'https://my.url/\');',
     },
     {
       id: '5',
@@ -56,7 +60,9 @@ export default {
   },
 } as ComponentMeta<typeof ArticleListItem>;
 
-const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListItem {...args} />;
+const Template: ComponentStory<typeof ArticleListItem> = (args) => (
+  <ArticleListItem {...args} />
+);
 
 export const Big = Template.bind({});
 Big.args = {

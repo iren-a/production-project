@@ -13,7 +13,9 @@ export default {
   decorators: [withMock],
 } as ComponentMeta<typeof ArticlesPage>;
 
-const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {...args} />;
+const Template: ComponentStory<typeof ArticlesPage> = (args) => (
+  <ArticlesPage {...args} />
+);
 
 const article: Article = {
   id: '1',

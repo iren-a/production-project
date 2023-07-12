@@ -34,9 +34,7 @@ export const ArticlesInfiniteList = memo((props: ArticlesInfiniteListProps) => {
   });
 
   if (error) {
-    return (
-      <Text text={t('Ошибка при загрузке статей', { ns: 'article' })} />
-    );
+    return <Text text={t('Ошибка при загрузке статей', { ns: 'article' })} />;
   }
 
   return (

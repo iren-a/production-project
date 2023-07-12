@@ -3,45 +3,38 @@ import { getUserAuthData } from '@/entities/User';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { CommentType } from '@/entities/Comment';
 import { getArticleDetailsData } from '@/entities/Article';
-import {
-  fetchCommentsByArticleId,
-} from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
 
 export const addCommentForArticle = createAsyncThunk<
   CommentType,
   string,
   ThunkConfig<string>
->(
-  'articleDetails/addCommentForArticle',
-  async (text, thunkAPI) => {
-    const {
-      extra, rejectWithValue, getState, dispatch,
-    } = thunkAPI;
+>('articleDetails/addCommentForArticle', async (text, thunkAPI) => {
+  const { extra, rejectWithValue, getState, dispatch } = thunkAPI;
 
-    const userData = getUserAuthData(getState());
-    const article = getArticleDetailsData(getState());
+  const userData = getUserAuthData(getState());
+  const article = getArticleDetailsData(getState());
 
-    if (!userData || !text || !article) {
-      return rejectWithValue('no data');
+  if (!userData || !text || !article) {
+    return rejectWithValue('no data');
+  }
+
+  try {
+    const response = await extra.api.post<CommentType>('/comments', {
+      articleId: article.id,
+      userId: userData.id,
+      text,
+    });
+
+    if (!response.data) {
+      throw new Error();
     }
 
-    try {
-      const response = await extra.api.post<CommentType>('/comments', {
-        articleId: article.id,
-        userId: userData.id,
-        text,
-      });
+    dispatch(fetchCommentsByArticleId(article.id));
 
-      if (!response.data) {
-        throw new Error();
-      }
-
-      dispatch(fetchCommentsByArticleId(article.id));
-
-      return response.data;
-    } catch (err) {
-      console.log(err);
-      return rejectWithValue('error');
-    }
-  },
-);
+    return response.data;
+  } catch (err) {
+    console.log(err);
+    return rejectWithValue('error');
+  }
+});

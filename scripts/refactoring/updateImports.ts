@@ -2,10 +2,7 @@ import { Project } from 'ts-morph';
 
 const project = new Project();
 
-project.addSourceFilesAtPaths([
-  'src/**/*.ts',
-  'src/**/*.tsx',
-]);
+project.addSourceFilesAtPaths(['src/**/*.ts', 'src/**/*.tsx']);
 
 function isAbsolute(value: string) {
   const layers = ['app', 'shared', 'widgets', 'features', 'entities', 'pages'];

@@ -22,7 +22,8 @@ export const resetProfile = (profileId: string) => {
       city: 'Moscow',
       username: 'testuser',
       // eslint-disable-next-line max-len
-      avatar: 'https://e-news.su/uploads/posts/2022-04/1650919998_d091d18bd181d182d180d0bed0b2_d0a5d0b0d0bad0b5d180.jpeg',
+      avatar:
+        'https://e-news.su/uploads/posts/2022-04/1650919998_d091d18bd181d182d180d0bed0b2_d0a5d0b0d0bad0b5d180.jpeg',
     },
   });
 };

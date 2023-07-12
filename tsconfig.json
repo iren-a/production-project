@@ -10,20 +10,16 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
+      "@/*": ["./src/*"]
     },
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "isolatedModules": true,
+    "isolatedModules": true
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
   },
-  "include": [
-    "./config/jest/setupTests.ts",
-    "./src/**/*.tsx",
-    "./src/**/*.ts"
-  ]
+  "include": ["./config/jest/setupTests.ts", "./src/**/*.tsx", "./src/**/*.ts"]
 }

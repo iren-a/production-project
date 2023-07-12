@@ -16,11 +16,7 @@ interface CommentCardProps {
 }
 
 export const CommentCard = memo((props: CommentCardProps) => {
-  const {
-    className,
-    comment,
-    isLoading,
-  } = props;
+  const { className, comment, isLoading } = props;
 
   if (isLoading) {
     return (
@@ -31,7 +27,12 @@ export const CommentCard = memo((props: CommentCardProps) => {
         className={classNames(cls.CommentCard, {}, [className, cls.loading])}
       >
         <div className={cls.header}>
-          <Skeleton className={cls.avatar} width={30} height={30} border="50%" />
+          <Skeleton
+            className={cls.avatar}
+            width={30}
+            height={30}
+            border="50%"
+          />
           <Skeleton height={16} width={100} />
         </div>
         <Skeleton width="100%" height={50} />

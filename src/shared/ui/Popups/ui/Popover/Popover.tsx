@@ -14,12 +14,7 @@ interface PopoverProps {
 }
 
 export const Popover = memo((props: PopoverProps) => {
-  const {
-    className,
-    trigger,
-    direction = 'bottom-left',
-    children,
-  } = props;
+  const { className, trigger, direction = 'bottom-left', children } = props;
 
   const optionsClasses = [mapDirectionClass[direction]];
 

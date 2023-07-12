@@ -17,7 +17,9 @@ const comment: CommentType = {
   user: { id: '1', username: 'Ivan' },
 };
 
-const Template: ComponentStory<typeof CommentCard> = (args) => <CommentCard {...args} />;
+const Template: ComponentStory<typeof CommentCard> = (args) => (
+  <CommentCard {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {

@@ -11,7 +11,9 @@ import '@/app/styles/index.scss';
 const container = document.getElementById('root');
 
 if (!container) {
-  throw new Error('Контейнер root на найден. Не удалось вмонтировать React приложение');
+  throw new Error(
+    'Контейнер root на найден. Не удалось вмонтировать React приложение',
+  );
 }
 
 const root = createRoot(container);

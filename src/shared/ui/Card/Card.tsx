@@ -7,9 +7,9 @@ export enum CardTheme {
   Outlined = 'outlined',
 }
 
-interface CardProps extends HTMLAttributes<HTMLDivElement>{
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
-  children: ReactNode
+  children: ReactNode;
   theme?: CardTheme;
   fullWidth?: boolean;
 }

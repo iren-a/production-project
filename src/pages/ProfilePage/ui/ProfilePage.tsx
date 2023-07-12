@@ -18,9 +18,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
   const { id } = useParams<{ id: string }>();
 
   if (!id) {
-    return (
-      <Text text={t('Профиль не найден', { ns: 'profile' })} />
-    );
+    return <Text text={t('Профиль не найден', { ns: 'profile' })} />;
   }
 
   return (

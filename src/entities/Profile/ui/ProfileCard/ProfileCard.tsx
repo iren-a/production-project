@@ -85,13 +85,11 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
       fullWidth
       className={classNames(cls.ProfileCard, mods, [className])}
     >
-      { data?.avatar && (
+      {data?.avatar && (
         <HStack fullWidth justify="center">
-          <Avatar
-            src={data?.avatar}
-          />
+          <Avatar src={data?.avatar} />
         </HStack>
-      ) }
+      )}
       <Input
         value={data?.first}
         placeholder={t('Ваше имя', { ns: 'profile' })}

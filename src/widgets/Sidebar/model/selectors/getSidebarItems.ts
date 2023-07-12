@@ -12,39 +12,36 @@ import {
   getRouteProfile,
 } from '@/shared/const/router';
 
-export const getSideBarItems = createSelector(
-  getUserAuthData,
-  (authData) => {
-    const sidebarItemsList: SidebarItemType[] = [
+export const getSideBarItems = createSelector(getUserAuthData, (authData) => {
+  const sidebarItemsList: SidebarItemType[] = [
+    {
+      path: getRouteMain(),
+      Icon: MainIcon,
+      text: 'Главная',
+    },
+    {
+      path: getRouteAbout(),
+      Icon: AboutIcon,
+      text: 'О сайте',
+    },
+  ];
+
+  if (authData) {
+    sidebarItemsList.push(
       {
-        path: getRouteMain(),
-        Icon: MainIcon,
-        text: 'Главная',
+        path: getRouteProfile(authData.id),
+        Icon: ProfileIcon,
+        text: 'Профиль',
+        authOnly: true,
       },
       {
-        path: getRouteAbout(),
-        Icon: AboutIcon,
-        text: 'О сайте',
+        path: getRouteArticles(),
+        Icon: ArticleIcon,
+        text: 'Статьи',
+        authOnly: true,
       },
-    ];
+    );
+  }
 
-    if (authData) {
-      sidebarItemsList.push(
-        {
-          path: getRouteProfile(authData.id),
-          Icon: ProfileIcon,
-          text: 'Профиль',
-          authOnly: true,
-        },
-        {
-          path: getRouteArticles(),
-          Icon: ArticleIcon,
-          text: 'Статьи',
-          authOnly: true,
-        },
-      );
-    }
-
-    return sidebarItemsList;
-  },
-);
+  return sidebarItemsList;
+});

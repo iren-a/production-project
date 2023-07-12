@@ -25,19 +25,21 @@ const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [StoreDecorator({
-  profile: {
-    form: {
-      username: 'admin',
-      age: 20,
-      country: Country.Kazakhstan,
-      first: 'Ivan',
-      lastname: 'Ivanov',
-      city: 'Test',
-      currency: Currency.USD,
+Light.decorators = [
+  StoreDecorator({
+    profile: {
+      form: {
+        username: 'admin',
+        age: 20,
+        country: Country.Kazakhstan,
+        first: 'Ivan',
+        lastname: 'Ivanov',
+        city: 'Test',
+        currency: Currency.USD,
+      },
     },
-  },
-})];
+  }),
+];
 
 export const Dark = Template.bind({});
 Dark.args = {};

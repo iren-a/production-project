@@ -16,14 +16,11 @@ interface ArticleListProps {
   target?: HTMLAttributeAnchorTarget;
 }
 
-const getSkeletons = (view: ArticleView) => (
-  new Array(view === ArticleView.SMALL ? 9 : 3)
-    .fill(null)
-    .map((item, i) => (
-      // eslint-disable-next-line react/no-array-index-key
-      <ArticleListItemSkeleton key={i} view={view} className={cls.card} />
-    ))
-);
+const getSkeletons = (view: ArticleView) =>
+  new Array(view === ArticleView.SMALL ? 9 : 3).fill(null).map((item, i) => (
+    // eslint-disable-next-line react/no-array-index-key
+    <ArticleListItemSkeleton key={i} view={view} className={cls.card} />
+  ));
 
 export const ArticleList = memo((props: ArticleListProps) => {
   const {
@@ -36,15 +33,18 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
   const { t } = useTranslation('article');
 
-  const renderArticle = useCallback((article: Article) => (
-    <ArticleListItem
-      key={article.id}
-      article={article}
-      view={view}
-      className={cls.card}
-      target={target}
-    />
-  ), [target, view]);
+  const renderArticle = useCallback(
+    (article: Article) => (
+      <ArticleListItem
+        key={article.id}
+        article={article}
+        view={view}
+        className={cls.card}
+        target={target}
+      />
+    ),
+    [target, view],
+  );
 
   if (!isLoading && !articles.length) {
     return (
@@ -59,9 +59,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
       className={classNames('', {}, [className, cls[view]])}
       data-testid="ArticleList"
     >
-      {articles.length
-        ? articles.map(renderArticle)
-        : null}
+      {articles.length ? articles.map(renderArticle) : null}
       {isLoading && getSkeletons(view)}
     </div>
   );

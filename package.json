@@ -11,6 +11,7 @@
     "start:dev:server": "node ./jsonServer/index.js",
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production apiUrl=https://production-project-server-hazel.vercel.app/",
+    "prettier": "npx prettier --write \"**/*.{ts,tsx,json}\"",
     "lint:ts": "npx eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "npx eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
@@ -30,7 +31,9 @@
     "postinstall": "node ./scripts/clearCache.js"
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": "eslint",
+    "**/*.{ts,tsx}": [
+      "eslint"
+    ],
     "**/*.scss": "stylelint"
   },
   "keywords": [],
@@ -93,6 +96,7 @@
     "cypress": "^12.17.0",
     "eslint": "^8.10.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-i-fsd-path-checker": "^0.0.7",
     "eslint-plugin-i18next": "^6.0.0-2",
     "eslint-plugin-import": "^2.25.4",
@@ -111,6 +115,7 @@
     "lint-staged": "^13.2.2",
     "loki": "^0.31.0",
     "mini-css-extract-plugin": "^2.5.3",
+    "prettier": "3.0.0",
     "react-refresh": "^0.12.0",
     "reg-cli": "^0.17.7",
     "sass": "^1.49.9",

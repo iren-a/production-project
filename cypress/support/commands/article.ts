@@ -11,14 +11,15 @@ const defaultArticle = {
   blocks: [],
 };
 
-export const createArticle = (article?: Article) => (
-  cy.request({
-    method: 'POST',
-    url: 'http://localhost:8000/articles',
-    headers: { Authorization: 'test' },
-    body: article ?? defaultArticle,
-  }).then(({ body }) => body)
-);
+export const createArticle = (article?: Article) =>
+  cy
+    .request({
+      method: 'POST',
+      url: 'http://localhost:8000/articles',
+      headers: { Authorization: 'test' },
+      body: article ?? defaultArticle,
+    })
+    .then(({ body }) => body);
 
 export const removeArticle = (articleId: string) => {
   cy.request({

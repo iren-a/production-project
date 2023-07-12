@@ -40,7 +40,10 @@ export const ListBox = (props: ListBoxProps) => {
   const optionsClasses = [mapDirectionClass[direction]];
 
   return (
-    <HStack gap="4" className={classNames('', { [popupCls.disabled]: readonly })}>
+    <HStack
+      gap="4"
+      className={classNames('', { [popupCls.disabled]: readonly })}
+    >
       {label && <span>{`${label}>`}</span>}
       <HListBox
         as="div"
@@ -50,11 +53,12 @@ export const ListBox = (props: ListBoxProps) => {
         disabled={readonly}
       >
         <HListBox.Button className={cls.trigger}>
-          <Button disabled={readonly}>
-            {value ?? defaultValue}
-          </Button>
+          <Button disabled={readonly}>{value ?? defaultValue}</Button>
         </HListBox.Button>
-        <HListBox.Options as="ul" className={classNames(cls.options, {}, optionsClasses)}>
+        <HListBox.Options
+          as="ul"
+          className={classNames(cls.options, {}, optionsClasses)}
+        >
           {items.map((item) => (
             <HListBox.Option
               key={item.value}

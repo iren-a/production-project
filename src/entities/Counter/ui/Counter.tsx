@@ -24,22 +24,13 @@ export const Counter = memo(() => {
   return (
     <div>
       <h1 data-testid="value-title">{counterValue}</h1>
-      <Button
-        onClick={handleAddFive}
-        data-testid="add5-btn"
-      >
+      <Button onClick={handleAddFive} data-testid="add5-btn">
         {t('add5')}
       </Button>
-      <Button
-        onClick={handleIncrement}
-        data-testid="increment-btn"
-      >
+      <Button onClick={handleIncrement} data-testid="increment-btn">
         {t('increment')}
       </Button>
-      <Button
-        onClick={handleDecrement}
-        data-testid="decrement-btn"
-      >
+      <Button onClick={handleDecrement} data-testid="decrement-btn">
         {t('decrement')}
       </Button>
     </div>

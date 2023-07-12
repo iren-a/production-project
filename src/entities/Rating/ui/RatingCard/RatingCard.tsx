@@ -37,14 +37,17 @@ export const RatingCard = memo((props: RatingCardProps) => {
   const [starsCount, setStarsCount] = useState(rate);
   const [feedback, setFeedback] = useState('');
 
-  const onSelectStars = useCallback((selectedStarsCount: number) => {
-    setStarsCount(selectedStarsCount);
-    if (hasFeedback) {
-      setIsModalOpen(true);
-    } else {
-      onAccept?.(selectedStarsCount);
-    }
-  }, [hasFeedback, onAccept]);
+  const onSelectStars = useCallback(
+    (selectedStarsCount: number) => {
+      setStarsCount(selectedStarsCount);
+      if (hasFeedback) {
+        setIsModalOpen(true);
+      } else {
+        onAccept?.(selectedStarsCount);
+      }
+    },
+    [hasFeedback, onAccept],
+  );
 
   const acceptHandle = useCallback(() => {
     setIsModalOpen(false);
@@ -69,55 +72,48 @@ export const RatingCard = memo((props: RatingCardProps) => {
   );
 
   return (
-    <Card
-      data-testid="RatingCard"
-      fullWidth
-      className={className}
-    >
+    <Card data-testid="RatingCard" fullWidth className={className}>
       <VStack fullWidth align="center" gap="8">
         <Text title={starsCount ? t('Спасибо за оценку') : title} />
-        <StarRating size={40} selectedStars={starsCount} onSelect={onSelectStars} />
+        <StarRating
+          size={40}
+          selectedStars={starsCount}
+          onSelect={onSelectStars}
+        />
       </VStack>
-      {
-        isMobile
-          ? (
-            <Drawer isOpen={isModalOpen} onClose={cancelHandle} lazy>
-              <VStack fullWidth gap="32">
-                {modalContent}
-                <Button
-                  data-testid="RatingCard.Send"
-                  onClick={acceptHandle}
-                  size={ButtonSize.L}
-                  fullWidth
-                >
-                  {t('Отправить')}
-                </Button>
-              </VStack>
-            </Drawer>
-          )
-          : (
-            <Modal isOpen={isModalOpen} lazy>
-              <VStack fullWidth gap="32">
-                {modalContent}
-                <HStack fullWidth gap="16" justify="end">
-                  <Button
-                    data-testid="RatingCard.Close"
-                    onClick={cancelHandle}
-                    theme={ButtonTheme.OutlineRed}
-                  >
-                    {t('Закрыть')}
-                  </Button>
-                  <Button
-                    data-testid="RatingCard.Send"
-                    onClick={acceptHandle}
-                  >
-                    {t('Отправить')}
-                  </Button>
-                </HStack>
-              </VStack>
-            </Modal>
-          )
-      }
+      {isMobile ? (
+        <Drawer isOpen={isModalOpen} onClose={cancelHandle} lazy>
+          <VStack fullWidth gap="32">
+            {modalContent}
+            <Button
+              data-testid="RatingCard.Send"
+              onClick={acceptHandle}
+              size={ButtonSize.L}
+              fullWidth
+            >
+              {t('Отправить')}
+            </Button>
+          </VStack>
+        </Drawer>
+      ) : (
+        <Modal isOpen={isModalOpen} lazy>
+          <VStack fullWidth gap="32">
+            {modalContent}
+            <HStack fullWidth gap="16" justify="end">
+              <Button
+                data-testid="RatingCard.Close"
+                onClick={cancelHandle}
+                theme={ButtonTheme.OutlineRed}
+              >
+                {t('Закрыть')}
+              </Button>
+              <Button data-testid="RatingCard.Send" onClick={acceptHandle}>
+                {t('Отправить')}
+              </Button>
+            </HStack>
+          </VStack>
+        </Modal>
+      )}
     </Card>
   );
 });

@@ -5,7 +5,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 
 export enum AppLinkTheme {
   Primary = 'primary',
-  Inverted = 'inverted'
+  Inverted = 'inverted',
 }
 
 interface AppLinkProps extends LinkProps {

@@ -17,7 +17,7 @@ export enum ButtonSize {
   Xl = 'sizeXl',
 }
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   /**
    * Тема кнопки. Отвечает за визуал (в рамке, без стилей, противоположный теме приложения цвет и тд)
@@ -62,7 +62,11 @@ export const Button = memo((props: ButtonProps) => {
   return (
     <button
       type="button"
-      className={classNames(cls.Button, mods, [className, cls[theme], cls[size]])}
+      className={classNames(cls.Button, mods, [
+        className,
+        cls[theme],
+        cls[size],
+      ])}
       disabled={disabled}
       {...otherProps}
     >

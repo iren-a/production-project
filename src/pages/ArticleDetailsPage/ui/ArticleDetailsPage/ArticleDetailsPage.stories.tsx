@@ -20,7 +20,9 @@ export default {
   decorators: [withMock],
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
+  <ArticleDetailsPage {...args} />
+);
 
 const article: Article = {
   id: '1',
@@ -55,7 +57,7 @@ const article: Article = {
     {
       id: '4',
       type: ArticleBlockType.CODE,
-      code: "app.alert(\"Click here\");\n\nthis.submitForm('https://my.url/');",
+      code: 'app.alert("Click here");\n\nthis.submitForm(\'https://my.url/\');',
     },
     {
       id: '5',

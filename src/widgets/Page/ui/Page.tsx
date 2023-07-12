@@ -1,11 +1,12 @@
-import {
-  memo, MutableRefObject, ReactNode, useRef, UIEvent,
-} from 'react';
+import { memo, MutableRefObject, ReactNode, useRef, UIEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
-import { getSavedScrollByPath, savedScrollActions } from '@/features/SavedScroll';
+import {
+  getSavedScrollByPath,
+  savedScrollActions,
+} from '@/features/SavedScroll';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
@@ -24,8 +25,8 @@ export const Page = memo((props: PageProps) => {
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
   const dispatch = useDispatch();
   const { pathname } = useLocation();
-  const scrollPosition = useSelector(
-    (state: StateSchema) => getSavedScrollByPath(state, pathname),
+  const scrollPosition = useSelector((state: StateSchema) =>
+    getSavedScrollByPath(state, pathname),
   );
 
   useInfiniteScroll({
@@ -39,10 +40,12 @@ export const Page = memo((props: PageProps) => {
   });
 
   const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-    dispatch(savedScrollActions.setScrollPosition({
-      path: pathname,
-      position: e.currentTarget.scrollTop,
-    }));
+    dispatch(
+      savedScrollActions.setScrollPosition({
+        path: pathname,
+        position: e.currentTarget.scrollTop,
+      }),
+    );
   }, 500);
 
   return (

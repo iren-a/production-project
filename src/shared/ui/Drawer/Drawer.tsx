@@ -1,7 +1,10 @@
 import React, { ReactNode, useCallback, useEffect } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTheme } from '@/app/providers/ThemeProvider';
-import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import {
+  AnimationProvider,
+  useAnimationLibs,
+} from '@/shared/lib/components/AnimationProvider';
 import { Portal } from '../Portal/Portal';
 import cls from './Drawer.module.scss';
 import { Overlay } from '../Overlay/Overlay';
@@ -17,13 +20,7 @@ interface DrawerProps {
 const height = window.innerHeight - 100;
 
 export const DrawerContent = (props: DrawerProps) => {
-  const {
-    className,
-    children,
-    isOpen,
-    onClose,
-    lazy,
-  } = props;
+  const { className, children, isOpen, onClose, lazy } = props;
 
   const { Spring, Gesture } = useAnimationLibs();
 
@@ -70,7 +67,10 @@ export const DrawerContent = (props: DrawerProps) => {
       }
     },
     {
-      from: () => [0, y.get()], filterTaps: true, bounds: { top: 0 }, rubberband: true,
+      from: () => [0, y.get()],
+      filterTaps: true,
+      bounds: { top: 0 },
+      rubberband: true,
     },
   );
 
@@ -82,7 +82,9 @@ export const DrawerContent = (props: DrawerProps) => {
 
   return (
     <Portal>
-      <div className={classNames(cls.Drawer, {}, ['app-drawer', theme, className])}>
+      <div
+        className={classNames(cls.Drawer, {}, ['app-drawer', theme, className])}
+      >
         <Overlay onClick={close} />
         <Spring.a.div
           className={cls.sheet}
@@ -103,9 +105,7 @@ const DrawerAsync = (props: DrawerProps) => {
     return null;
   }
 
-  return (
-    <DrawerContent {...props} />
-  );
+  return <DrawerContent {...props} />;
 };
 
 export const Drawer = (props: DrawerProps) => (

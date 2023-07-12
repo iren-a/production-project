@@ -17,31 +17,27 @@ interface TabsProps<T extends string> {
 }
 
 export const Tabs = typedMemo(<T extends string>(props: TabsProps<T>) => {
-  const {
-    className,
-    tabs,
-    value,
-    onTabClick,
-  } = props;
+  const { className, tabs, value, onTabClick } = props;
 
-  const clickHandle = useCallback((tab: TabItem<T>) => () => {
-    onTabClick(tab);
-  }, [onTabClick]);
+  const clickHandle = useCallback(
+    (tab: TabItem<T>) => () => {
+      onTabClick(tab);
+    },
+    [onTabClick],
+  );
 
   return (
     <div className={classNames(cls.Tabs, {}, [className])}>
-      {
-        tabs.map((tab) => (
-          <Card
-            key={tab.value}
-            theme={tab.value === value ? CardTheme.Primary : CardTheme.Outlined}
-            className={cls.tab}
-            onClick={clickHandle(tab)}
-          >
-            {tab.content}
-          </Card>
-        ))
-      }
+      {tabs.map((tab) => (
+        <Card
+          key={tab.value}
+          theme={tab.value === value ? CardTheme.Primary : CardTheme.Outlined}
+          className={cls.tab}
+          onClick={clickHandle(tab)}
+        >
+          {tab.content}
+        </Card>
+      ))}
     </div>
   );
 });

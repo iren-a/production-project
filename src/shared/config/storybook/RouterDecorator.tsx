@@ -1,10 +1,5 @@
 import { Story, StoryContext } from '@storybook/react';
-import {
-  Routes,
-  Route,
-  MemoryRouter,
-  BrowserRouter,
-} from 'react-router-dom';
+import { Routes, Route, MemoryRouter, BrowserRouter } from 'react-router-dom';
 
 export const RouterDecorator = (
   StoryComponent: Story,

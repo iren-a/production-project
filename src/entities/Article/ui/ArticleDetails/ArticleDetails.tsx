@@ -15,15 +15,9 @@ import CalendarIcon from '@/shared/assets/icons/calendar.svg';
 import { Icon } from '@/shared/ui/Icon';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { ArticleBlockType } from '../../model/consts/consts';
-import {
-  ArticleCodeBlockComponent,
-} from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import {
-  ArticleImageBlockComponent,
-} from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
-import {
-  ArticleTextBlockComponent,
-} from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleBlock } from '../../model/types/article';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import {
@@ -44,10 +38,7 @@ const reducers: ReducersList = {
 };
 
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
-  const {
-    className,
-    id,
-  } = props;
+  const { className, id } = props;
 
   const { t } = useTranslation('article');
   const dispatch = useAppDispatch();
@@ -57,29 +48,14 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
-    case ArticleBlockType.CODE:
-      return (
-        <ArticleCodeBlockComponent
-          key={block.id}
-          block={block}
-        />
-      );
-    case ArticleBlockType.IMAGE:
-      return (
-        <ArticleImageBlockComponent
-          key={block.id}
-          block={block}
-        />
-      );
-    case ArticleBlockType.TEXT:
-      return (
-        <ArticleTextBlockComponent
-          key={block.id}
-          block={block}
-        />
-      );
-    default:
-      return null;
+      case ArticleBlockType.CODE:
+        return <ArticleCodeBlockComponent key={block.id} block={block} />;
+      case ArticleBlockType.IMAGE:
+        return <ArticleImageBlockComponent key={block.id} block={block} />;
+      case ArticleBlockType.TEXT:
+        return <ArticleTextBlockComponent key={block.id} block={block} />;
+      default:
+        return null;
     }
   }, []);
 
@@ -97,7 +73,12 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     content = (
       <>
         <HStack fullWidth justify="center">
-          <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
+          <Skeleton
+            className={cls.avatar}
+            width={200}
+            height={200}
+            border="50%"
+          />
         </HStack>
         <VStack fullWidth gap="4">
           <Skeleton width={300} height={32} />
@@ -118,11 +99,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     content = (
       <>
         <HStack fullWidth justify="center">
-          <Avatar
-            size={200}
-            src={article?.img}
-            className={cls.avatar}
-          />
+          <Avatar size={200} src={article?.img} className={cls.avatar} />
         </HStack>
         <VStack fullWidth gap="4" data-testid="ArticleDetails.Info">
           <Text
@@ -146,7 +123,11 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <VStack gap="16" fullWidth className={classNames(cls.ArticleDetails, {}, [className])}>
+      <VStack
+        gap="16"
+        fullWidth
+        className={classNames(cls.ArticleDetails, {}, [className])}
+      >
         {content}
       </VStack>
     </DynamicModuleLoader>

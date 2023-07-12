@@ -3,10 +3,7 @@ import path from 'path';
 
 const project = new Project();
 
-project.addSourceFilesAtPaths([
-  'src/**/*.ts',
-  'src/**/*.tsx',
-]);
+project.addSourceFilesAtPaths(['src/**/*.ts', 'src/**/*.tsx']);
 
 const files = project.getSourceFiles();
 const uiPath = path.resolve(__dirname, '..', '..', 'src', 'shared', 'ui');
@@ -24,11 +21,9 @@ componentsDir?.forEach((dir) => {
 
   if (!indexFile) {
     const sourceCode = `export * from './${dir.getBaseName()}';`;
-    const file = dir.createSourceFile(
-      indexFilePath,
-      sourceCode,
-      { overwrite: true },
-    );
+    const file = dir.createSourceFile(indexFilePath, sourceCode, {
+      overwrite: true,
+    });
     file.save();
   }
 });

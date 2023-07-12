@@ -22,7 +22,7 @@ export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
   savedScroll: SavedScrollSchema;
-  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
   // Асинхронные редюсеры
   loginForm?: LoginSchema;
@@ -42,9 +42,12 @@ export interface ReducerManager {
   remove: (key: StateSchemaKey) => void;
 }
 
-export interface ReduxStoreWithManager extends EnhancedStore<
-  StateSchema, AnyAction, [ThunkMiddleware<StateSchema, AnyAction, undefined>]
-> {
+export interface ReduxStoreWithManager
+  extends EnhancedStore<
+    StateSchema,
+    AnyAction,
+    [ThunkMiddleware<StateSchema, AnyAction, undefined>]
+  > {
   reducerManager: ReducerManager;
 }
 

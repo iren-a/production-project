@@ -1,5 +1,9 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from './articleDetails';
+import {
+  getArticleDetailsData,
+  getArticleDetailsError,
+  getArticleDetailsIsLoading,
+} from './articleDetails';
 
 const data = {
   id: '1',

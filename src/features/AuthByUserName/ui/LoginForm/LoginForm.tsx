@@ -32,18 +32,25 @@ const LoginForm = memo((props: LoginFormProps) => {
 
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
+
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
   const isLoading = useSelector(getLoginIsLoading);
   const error = useSelector(getLoginError);
 
-  const onChangeUsername = useCallback((value: string) => {
-    dispatch(loginActions.setUsername(value));
-  }, [dispatch]);
+  const onChangeUsername = useCallback(
+    (value: string) => {
+      dispatch(loginActions.setUsername(value));
+    },
+    [dispatch],
+  );
 
-  const onChangePassword = useCallback((value: string) => {
-    dispatch(loginActions.setPassword(value));
-  }, [dispatch]);
+  const onChangePassword = useCallback(
+    (value: string) => {
+      dispatch(loginActions.setPassword(value));
+    },
+    [dispatch],
+  );
 
   const onLoginClick = useCallback(async () => {
     const result = await dispatch(loginByUsername({ username, password }));
@@ -53,12 +60,15 @@ const LoginForm = memo((props: LoginFormProps) => {
   }, [dispatch, onSuccess, password, username]);
 
   return (
-    <DynamicModuleLoader
-      reducers={initialReducers}
-    >
+    <DynamicModuleLoader reducers={initialReducers}>
       <div className={classNames(cls.LoginForm, {}, [className])}>
         <Text title={t('Вход в приложение')} />
-        { error && <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.Error} />}
+        {error && (
+          <Text
+            text={t('Вы ввели неверный логин или пароль')}
+            theme={TextTheme.Error}
+          />
+        )}
         <Input
           autofocus
           type="text"
