@@ -1,16 +1,8 @@
 const fs = require('fs');
 const jsonServer = require('json-server');
 const path = require('path');
+const http = require('http');
 const https = require('https');
-
-const options = {
-  key: fs.readFileSync(
-    '/etc/letsencrypt/live/production-project.irinaarinushkina.com-0001/privkey.pem',
-  ),
-  cert: fs.readFileSync(
-    '/etc/letsencrypt/live/production-project.irinaarinushkina.com-0001/cert.pem',
-  ),
-};
 
 const server = jsonServer.create();
 
@@ -64,9 +56,32 @@ server.use((req, res, next) => {
 server.use(router);
 
 // Запуск сервера
-const PORT = 8443;
-const httpsServer = https.createServer(options, server);
+try {
+  const PORT = 8443;
 
-httpsServer.listen(PORT, () => {
-  console.log(`Server is running on ${PORT} port`);
+  const options = {
+    key: fs.readFileSync(
+      '/etc/letsencrypt/live/production-project.irinaarinushkina.com-0001/privkey.pem',
+    ),
+    cert: fs.readFileSync(
+      '/etc/letsencrypt/live/production-project.irinaarinushkina.com-0001/cert.pem',
+    ),
+  };
+
+  const httpsServer = https.createServer(options, server);
+
+  httpsServer.listen(PORT, () => {
+    console.log(`Server is running on ${PORT} port`);
+  });
+} catch (err) {
+  console.log(`error when starting https server: ${err}`);
+}
+
+// для локального запуска
+const HTTP_PORT = 8000;
+
+const httpServer = http.createServer(server);
+
+httpServer.listen(HTTP_PORT, () => {
+  console.log(`Server is running on ${HTTP_PORT} port`);
 });
