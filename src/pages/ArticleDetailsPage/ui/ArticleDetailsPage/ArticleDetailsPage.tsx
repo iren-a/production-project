@@ -15,8 +15,8 @@ import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDet
 import { articleDetailsPageReducer } from '../../model/slices';
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleRating } from '@/features/ArticleRating';
-import { getFeatureFlag } from '@/shared/features';
-import { Counter } from '@/entities/Counter';
+import { toggleFeatures } from '@/shared/features';
+import { Card } from '@/shared/ui/Card';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -31,8 +31,6 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
 
   const { t } = useTranslation('article');
   const { id } = useParams<{ id: string }>();
-  const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
-  const isCounterEnabled = getFeatureFlag('isCounterEnabled');
 
   if (!id) {
     return (
@@ -42,14 +40,19 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
     );
   }
 
+  const articleRatingCard = toggleFeatures({
+    name: 'isArticleRatingEnabled',
+    on: () => <ArticleRating articleId={id} />,
+    off: () => <Card>{t('Оценка статей скоро появится', { ns: 'article' })}</Card>,
+  });
+
   return (
     <DynamicModuleLoader reducers={reducers}>
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <VStack gap="16" fullWidth>
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
-          {isCounterEnabled && <Counter />}
-          {isArticleRatingEnabled && <ArticleRating articleId={id} />}
+          {articleRatingCard}
           <ArticleRecommendationsList />
           <ArticleDetailsComments id={id} />
         </VStack>
