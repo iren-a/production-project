@@ -4,6 +4,7 @@ import { User, UserSchema } from '../types/user';
 import { setFeatureFlags } from '@/shared/features';
 import { saveJsonSettings } from '../services/saveJsonSettings';
 import { JsonSettings } from '../types/jsonSettings';
+import { initAuthData } from '../services/initAuthData';
 
 const initialState: UserSchema = {
   _isUserInit: false,
@@ -16,15 +17,7 @@ export const userSlice = createSlice({
     setAuthData: (state, { payload }: PayloadAction<User>) => {
       state.authData = payload;
       setFeatureFlags(payload.features);
-    },
-    initAuthData: (state) => {
-      const userJson = localStorage.getItem('user');
-      if (userJson) {
-        const user = JSON.parse(userJson) as User;
-        state.authData = user;
-        setFeatureFlags(user.features);
-      }
-      state._isUserInit = true;
+      localStorage.setItem(USER_LOCAL_STORAGE_KEY, payload.id);
     },
     logout: (state) => {
       state.authData = undefined;
@@ -40,6 +33,14 @@ export const userSlice = createSlice({
         }
       },
     );
+    builder.addCase(initAuthData.fulfilled, (state, { payload }: PayloadAction<User>) => {
+      state.authData = payload;
+      setFeatureFlags(payload.features);
+      state._isUserInit = true;
+    });
+    builder.addCase(initAuthData.rejected, (state) => {
+      state._isUserInit = true;
+    });
   },
 });
 
