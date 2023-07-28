@@ -1,6 +1,5 @@
 {
   "App": "App",
-  "add5": "",
   "decrement": "decrement",
   "increment": "increment",
   "Админка": "Admin",
@@ -12,7 +11,9 @@
   "Вы ввели неверный логин или пароль": "Wrong login or password",
   "Выйти": "Logout",
   "Главная": "Main",
+  "Добро пожаловать на страницу статей": "Welcome to Articles Page",
   "Закрыть": "Close",
+  "Здесь вы можете искать и просматривать статьи на различные темы": "Here you can search and view articles on various topics",
   "Нет доступа": "You do not have access to this page",
   "О сайте": "About",
   "Обновить страницу": "Reload page",
