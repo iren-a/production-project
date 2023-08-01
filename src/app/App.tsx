@@ -8,6 +8,8 @@ import { getIsUserInit, initAuthData } from '@/entities/User';
 import { useTheme } from '@/app/providers/ThemeProvider';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { PageLoader } from '@/widgets/PageLoader';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { MainLayout } from '@/shared/layouts/MainLayout';
 
 const App = () => {
   const { theme } = useTheme();
@@ -23,13 +25,28 @@ const App = () => {
   }
 
   return (
-    <div className={classNames('app', {}, [theme])}>
-      <Navbar />
-      <div className="content-page">
-        <Sidebar />
-        {isUserInit && <AppRouter />}
-      </div>
-    </div>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <div className={classNames('app-redesigned', {}, [theme])}>
+          <MainLayout
+            header={<Navbar />}
+            content={<AppRouter />}
+            sidebar={<Sidebar />}
+            toolbar={<div>123</div>}
+          />
+        </div>
+      }
+      off={
+        <div className={classNames('app', {}, [theme])}>
+          <Navbar />
+          <div className="content-page">
+            <Sidebar />
+            <AppRouter />
+          </div>
+        </div>
+      }
+    />
   );
 };
 
