@@ -1,7 +1,7 @@
 import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { ArticleView } from '../../model/consts/consts';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -23,13 +23,7 @@ const getSkeletons = (view: ArticleView) =>
   ));
 
 export const ArticleList = memo((props: ArticleListProps) => {
-  const {
-    className,
-    articles,
-    isLoading,
-    view = ArticleView.SMALL,
-    target,
-  } = props;
+  const { className, articles, isLoading, view = ArticleView.SMALL, target } = props;
 
   const { t } = useTranslation('article');
 
@@ -55,10 +49,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
   }
 
   return (
-    <div
-      className={classNames('', {}, [className, cls[view]])}
-      data-testid="ArticleList"
-    >
+    <div className={classNames('', {}, [className, cls[view]])} data-testid="ArticleList">
       {articles.length ? articles.map(renderArticle) : null}
       {isLoading && getSkeletons(view)}
     </div>

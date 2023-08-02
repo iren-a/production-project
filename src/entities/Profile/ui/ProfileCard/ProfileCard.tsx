@@ -1,13 +1,13 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
-import { Input } from '@/shared/ui/Input';
-import { Loader } from '@/shared/ui/Loader';
-import { Avatar } from '@/shared/ui/Avatar';
+import { Text, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Input } from '@/shared/ui/deprecated/Input';
+import { Loader } from '@/shared/ui/deprecated/Loader';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Currency, CurrencySelect } from '@/entities/Currency';
 import { Country, CountrySelect } from '@/entities/Country';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -80,11 +80,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
   };
 
   return (
-    <VStack
-      gap="8"
-      fullWidth
-      className={classNames(cls.ProfileCard, mods, [className])}
-    >
+    <VStack gap="8" fullWidth className={classNames(cls.ProfileCard, mods, [className])}>
       {data?.avatar && (
         <HStack fullWidth justify="center">
           <Avatar src={data?.avatar} />
@@ -128,16 +124,8 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
         onChange={onChangeAvatar}
         readonly={readonly}
       />
-      <CurrencySelect
-        value={data?.currency}
-        onChange={onChangeCurrency}
-        readonly={readonly}
-      />
-      <CountrySelect
-        value={data?.country}
-        onChange={onChangeCountry}
-        readonly={readonly}
-      />
+      <CurrencySelect value={data?.currency} onChange={onChangeCurrency} readonly={readonly} />
+      <CountrySelect value={data?.country} onChange={onChangeCountry} readonly={readonly} />
     </VStack>
   );
 });

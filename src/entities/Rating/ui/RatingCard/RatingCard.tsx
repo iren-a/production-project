@@ -1,14 +1,14 @@
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Card } from '@/shared/ui/Card';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { Text } from '@/shared/ui/Text';
-import { StarRating } from '@/shared/ui/StarRating';
-import { Modal } from '@/shared/ui/Modal';
-import { Input } from '@/shared/ui/Input';
-import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
+import { Text } from '@/shared/ui/deprecated/Text';
+import { StarRating } from '@/shared/ui/deprecated/StarRating';
+import { Modal } from '@/shared/ui/deprecated/Modal';
+import { Input } from '@/shared/ui/deprecated/Input';
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { useMobileDetect } from '@/shared/lib/hooks/useMobileDetect/useMobileDetect';
-import { Drawer } from '@/shared/ui/Drawer';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
 
 interface RatingCardProps {
   className?: string;
@@ -21,15 +21,7 @@ interface RatingCardProps {
 }
 
 export const RatingCard = memo((props: RatingCardProps) => {
-  const {
-    className,
-    title,
-    feedbackTitle,
-    hasFeedback,
-    onCancel,
-    onAccept,
-    rate = 0,
-  } = props;
+  const { className, title, feedbackTitle, hasFeedback, onCancel, onAccept, rate = 0 } = props;
 
   const { t } = useTranslation();
   const isMobile = useMobileDetect();
@@ -75,11 +67,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
     <Card data-testid="RatingCard" fullWidth className={className}>
       <VStack fullWidth align="center" gap="8">
         <Text title={starsCount ? t('Спасибо за оценку') : title} />
-        <StarRating
-          size={40}
-          selectedStars={starsCount}
-          onSelect={onSelectStars}
-        />
+        <StarRating size={40} selectedStars={starsCount} onSelect={onSelectStars} />
       </VStack>
       {isMobile ? (
         <Drawer isOpen={isModalOpen} onClose={cancelHandle} lazy>

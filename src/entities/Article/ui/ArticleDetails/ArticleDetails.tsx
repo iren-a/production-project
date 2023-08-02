@@ -7,13 +7,13 @@ import {
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text, TextAlign, TextSize } from '@/shared/ui/Text';
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { Avatar } from '@/shared/ui/Avatar';
+import { Text, TextAlign, TextSize } from '@/shared/ui/deprecated/Text';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar.svg';
-import { Icon } from '@/shared/ui/Icon';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { Icon } from '@/shared/ui/deprecated/Icon';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 import { ArticleBlockType } from '../../model/consts/consts';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
@@ -73,12 +73,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     content = (
       <>
         <HStack fullWidth justify="center">
-          <Skeleton
-            className={cls.avatar}
-            width={200}
-            height={200}
-            border="50%"
-          />
+          <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
         </HStack>
         <VStack fullWidth gap="4">
           <Skeleton width={300} height={32} />
@@ -102,11 +97,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
           <Avatar size={200} src={article?.img} className={cls.avatar} />
         </HStack>
         <VStack fullWidth gap="4" data-testid="ArticleDetails.Info">
-          <Text
-            title={article?.title}
-            text={article?.subtitle}
-            size={TextSize.L}
-          />
+          <Text title={article?.title} text={article?.subtitle} size={TextSize.L} />
           <HStack gap="8">
             <Icon Svg={EyeIcon} />
             <Text text={String(article?.view ?? '')} />
@@ -123,11 +114,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <VStack
-        gap="16"
-        fullWidth
-        className={classNames(cls.ArticleDetails, {}, [className])}
-      >
+      <VStack gap="16" fullWidth className={classNames(cls.ArticleDetails, {}, [className])}>
         {content}
       </VStack>
     </DynamicModuleLoader>

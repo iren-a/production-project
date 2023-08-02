@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/Text';
-import { VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/deprecated/Text';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { CommentType } from '../../model/types/comment';
 import { CommentCard } from '../CommentCard/CommentCard';
 
@@ -31,11 +31,7 @@ export const CommentList = memo((props: CommentListProps) => {
     <VStack gap="16" fullWidth className={classNames('', {}, [className])}>
       {comments?.length ? (
         comments.map((comment) => (
-          <CommentCard
-            key={comment.id}
-            comment={comment}
-            isLoading={isLoading}
-          />
+          <CommentCard key={comment.id} comment={comment} isLoading={isLoading} />
         ))
       ) : (
         <Text text={t('Комментарии отсутствуют', { ns: 'commentList' })} />

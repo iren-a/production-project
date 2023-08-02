@@ -2,9 +2,9 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { Text, TextTheme } from '@/shared/ui/Text';
-import { Input } from '@/shared/ui/Input';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Input } from '@/shared/ui/deprecated/Input';
 import {
   DynamicModuleLoader,
   ReducersList,
@@ -63,12 +63,7 @@ const LoginForm = memo((props: LoginFormProps) => {
     <DynamicModuleLoader reducers={initialReducers}>
       <div className={classNames(cls.LoginForm, {}, [className])}>
         <Text title={t('Вход в приложение')} />
-        {error && (
-          <Text
-            text={t('Вы ввели неверный логин или пароль')}
-            theme={TextTheme.Error}
-          />
-        )}
+        {error && <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.Error} />}
         <Input
           autofocus
           type="text"
