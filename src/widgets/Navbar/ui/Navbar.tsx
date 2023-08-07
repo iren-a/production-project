@@ -7,7 +7,7 @@ import { Text, TextTheme } from '@/shared/ui/deprecated/Text/Text';
 import { LoginModal } from '@/features/AuthByUserName';
 import { getUserAuthData } from '@/entities/User';
 import { AppLink, AppLinkTheme } from '@/shared/ui/deprecated/AppLink';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import cls from './Navbar.module.scss';
