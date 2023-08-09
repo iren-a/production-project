@@ -1,12 +1,22 @@
 .ArticleViewSelector {
   display: flex;
   align-items: center;
+
+  .icon {
+    fill: var(--secondary-color);
+  }
+
+  .selected {
+    fill: var(--primary-color);
+  }
 }
 
-.icon {
-  fill: var(--secondary-color);
-}
+.ArticleViewSelectorRedesigned {
+  .icon {
+    color: var(--light-bg-redesigned);
+  }
 
-.selected {
-  fill: var(--primary-color);
+  .selected {
+    color: var(--icon-redesigned);
+  }
 }

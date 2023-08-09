@@ -28,33 +28,33 @@ Clear.args = {
 export const Outline = Template.bind({});
 Outline.args = {
   children: 'Text',
-  variant: 'outline',
+  variant: 'outlined',
 };
 
 export const OutlineSizeL = Template.bind({});
 OutlineSizeL.args = {
   children: 'Text',
-  variant: 'outline',
+  variant: 'outlined',
   size: 'l',
 };
 
 export const OutlineSizeXl = Template.bind({});
 OutlineSizeXl.args = {
   children: 'Text',
-  variant: 'outline',
+  variant: 'outlined',
   size: 'xl',
 };
 
 export const OutlineDark = Template.bind({});
 OutlineDark.args = {
   children: 'Text',
-  variant: 'outline',
+  variant: 'outlined',
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.Dark)];
 
 export const Disabled = Template.bind({});
 Disabled.args = {
   children: 'Text',
-  variant: 'outline',
+  variant: 'outlined',
   disabled: true,
 };
