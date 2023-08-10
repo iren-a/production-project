@@ -1,11 +1,11 @@
 .Skeleton {
-  background: var(--skeleton-color);
+  background: var(--light-bg-redesigned);
   background:
     linear-gradient(
       110deg,
-      var(--skeleton-gradient-start-color) 8%,
-      var(--skeleton-gradient-finish-color) 18%,
-      var(--skeleton-gradient-start-color) 33%
+      var(--light-bg-redesigned) 8%,
+      var(--dark-bg-redesigned) 18%,
+      var(--light-bg-redesigned) 33%
     );
   border-radius: 5px;
   background-size: 200% 100%;
