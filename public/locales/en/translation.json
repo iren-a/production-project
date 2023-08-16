@@ -3,6 +3,8 @@
   "add5": "",
   "decrement": "decrement",
   "increment": "increment",
+  "{{count}} просмотров_one": "{{count}} view",
+  "{{count}} просмотров_other": "{{count}} views",
   "Админка": "Admin",
   "Вариант интерфейса": "Interface option",
   "Ваш отзыв": "Your feedback",

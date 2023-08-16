@@ -29,12 +29,7 @@ const App = () => {
       feature="isAppRedesigned"
       on={
         <div id="app" className={classNames('app-redesigned', {}, [theme])}>
-          <MainLayout
-            header={<Navbar />}
-            content={<AppRouter />}
-            sidebar={<Sidebar />}
-            toolbar={<div>123</div>}
-          />
+          <MainLayout header={<Navbar />} content={<AppRouter />} sidebar={<Sidebar />} />
         </div>
       }
       off={
