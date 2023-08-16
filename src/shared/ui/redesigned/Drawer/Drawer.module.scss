@@ -27,6 +27,17 @@
   width: 96vw;
   padding: 15px;
   border-radius: 12px 12px 0;
-  background: var(--bg-color);
   touch-action: none;
+}
+
+.drawerNew {
+  .sheet {
+    background: var(--light-bg-redesigned);
+  }
+}
+
+.drawerOld {
+  .sheet {
+    background: var(--bg-color);
+  }
 }

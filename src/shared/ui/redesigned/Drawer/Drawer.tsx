@@ -2,9 +2,10 @@ import React, { ReactNode, useCallback, useEffect } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTheme } from '@/app/providers/ThemeProvider';
 import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
-import { Portal } from '../../redesigned/Portal/Portal';
+import { Portal } from '../Portal/Portal';
 import cls from './Drawer.module.scss';
-import { Overlay } from '../../redesigned/Overlay/Overlay';
+import { Overlay } from '../Overlay/Overlay';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface DrawerProps {
   className?: string;
@@ -16,10 +17,6 @@ interface DrawerProps {
 
 const height = window.innerHeight - 100;
 
-/**
- * @deprecated
- * Устарел, используем новые компоненты из папки redesigned
- */
 export const DrawerContent = (props: DrawerProps) => {
   const { className, children, isOpen, onClose, lazy } = props;
 
@@ -76,8 +73,19 @@ export const DrawerContent = (props: DrawerProps) => {
   const display = y.to((py) => (py < height ? 'block' : 'none'));
 
   return (
-    <Portal>
-      <div className={classNames(cls.Drawer, {}, ['app-drawer', theme, className])}>
+    <Portal element={document.getElementById('app') ?? document.body}>
+      <div
+        className={classNames(cls.Drawer, {}, [
+          'app-drawer',
+          theme,
+          className,
+          toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => cls.drawerNew,
+            off: () => cls.drawerOld,
+          }),
+        ])}
+      >
         <Overlay onClick={close} />
         <Spring.a.div
           className={cls.sheet}

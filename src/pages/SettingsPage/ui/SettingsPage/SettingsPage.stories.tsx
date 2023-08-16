@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { SettingsPage } from './SettingsPage';
+import SettingsPage from './SettingsPage';
 
 export default {
   title: 'pages/SettingsPage',
@@ -14,6 +14,4 @@ export default {
 const Template: ComponentStory<typeof SettingsPage> = (args) => <SettingsPage {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {
-
-};
+Normal.args = {};
