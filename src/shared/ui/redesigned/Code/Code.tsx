@@ -1,18 +1,14 @@
 import { memo, useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import CopyIcon from '@/shared/assets/icons/copy-deprecated.svg';
-import { Button, ButtonTheme } from '../Button';
+import CopyIcon from '@/shared/assets/icons/copy.svg';
 import cls from './Code.module.scss';
+import { Icon } from '../Icon';
 
 interface CodeProps {
   className?: string;
   text: string;
 }
 
-/**
- * @deprecated
- * Устарел, используем новые компоненты из папки redesigned
- */
 export const Code = memo((props: CodeProps) => {
   const { className, text } = props;
 
@@ -22,9 +18,7 @@ export const Code = memo((props: CodeProps) => {
 
   return (
     <pre className={classNames(cls.Code, {}, [className])}>
-      <Button className={cls.copyBtn} onClick={onCopy} theme={ButtonTheme.Clear}>
-        <CopyIcon className={cls.copyIcon} />
-      </Button>
+      <Icon clickable Svg={CopyIcon} className={cls.copyBtn} onClick={onCopy} />
       <code>{text}</code>
     </pre>
   );
