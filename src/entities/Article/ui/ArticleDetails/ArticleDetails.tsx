@@ -24,7 +24,7 @@ import {
 import cls from './ArticleDetails.module.scss';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { renderArticleBlock } from './renderArticleBlock';
-import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { AppImage } from '@/shared/ui/redesigned/AppImage/AppImage';
 
@@ -37,11 +37,32 @@ const reducers: ReducersList = {
   articleDetails: articleDetailsReducer,
 };
 
-const Skeleton = toggleFeatures({
-  name: 'isAppRedesigned',
-  on: () => SkeletonRedesigned,
-  off: () => SkeletonDeprecated,
-});
+const ArticleDetailsSkeleton = () => (
+  <ToggleFeatures
+    feature="isAppRedesigned"
+    on={
+      <VStack gap="8" fullWidth>
+        <SkeletonRedesigned width={300} height={32} />
+        <SkeletonRedesigned width={600} height={24} />
+        <SkeletonRedesigned width="100%" height={200} />
+        <SkeletonRedesigned width="100%" height={200} />
+      </VStack>
+    }
+    off={
+      <>
+        <HStack fullWidth justify="center">
+          <SkeletonDeprecated className={cls.avatar} width={200} height={200} border="50%" />
+        </HStack>
+        <VStack fullWidth gap="4">
+          <SkeletonDeprecated width={300} height={32} />
+          <SkeletonDeprecated width={600} height={24} />
+          <SkeletonDeprecated width="100%" height={200} />
+          <SkeletonDeprecated width="100%" height={200} />
+        </VStack>
+      </>
+    }
+  />
+);
 
 const Deprecated = () => {
   const article = useSelector(getArticleDetailsData);
@@ -75,7 +96,7 @@ const Redesigned = () => {
       <Text title={article?.title} size="l" bold />
       <Text title={article?.subtitle} />
       <AppImage
-        fallback={<Skeleton width="100%" height={420} />}
+        fallback={<SkeletonRedesigned width="100%" height={420} />}
         src={article?.img}
         className={cls.img}
       />
@@ -104,19 +125,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   let content;
 
   if (isLoading) {
-    content = (
-      <>
-        <HStack fullWidth justify="center">
-          <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
-        </HStack>
-        <VStack fullWidth gap="4">
-          <Skeleton width={300} height={32} />
-          <Skeleton width={600} height={24} />
-          <Skeleton width="100%" height={200} />
-          <Skeleton width="100%" height={200} />
-        </VStack>
-      </>
-    );
+    content = <ArticleDetailsSkeleton />;
   } else if (error) {
     content = (
       <TextDeprecated

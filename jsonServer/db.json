@@ -1661,6 +1661,12 @@
       "userId": "4",
       "text": "text",
       "id": "t9OWjGR"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid animi aut eaque eligendi enim esse fugit   laudantium nostrum optio repellendus repudiandae, sequi suscipit temporibus totam veniam voluptatibus. Accusamus,   omnis",
+      "id": "G7djyz3"
     }
   ],
   "users": [
@@ -1673,7 +1679,7 @@
       ],
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg1",
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpened": false,
         "isArticlesPageWasOpened": true
@@ -1820,6 +1826,18 @@
       "rate": 3,
       "feedback": "",
       "id": 4
+    },
+    {
+      "userId": "1",
+      "articleId": "3",
+      "rate": 2,
+      "id": 5
+    },
+    {
+      "userId": "1",
+      "articleId": "8",
+      "rate": 3,
+      "id": 6
     }
   ]
 }

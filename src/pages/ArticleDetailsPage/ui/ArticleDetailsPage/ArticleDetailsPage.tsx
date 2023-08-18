@@ -16,7 +16,6 @@ import { articleDetailsPageReducer } from '../../model/slices';
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleRating } from '@/features/ArticleRating';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { Card } from '@/shared/ui/deprecated/Card';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { DetailsContainer } from '../DetailsContainer/DetailsContainer';
 import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer';
@@ -67,7 +66,7 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
             <VStack gap="16" fullWidth>
               <ArticleDetailsPageHeader />
               <ArticleDetails id={id} />
-              <Card>{t('Оценка статей скоро появится', { ns: 'article' })}</Card>
+              <ArticleRating articleId={id} />
               <ArticleRecommendationsList />
               <ArticleDetailsComments id={id} />
             </VStack>

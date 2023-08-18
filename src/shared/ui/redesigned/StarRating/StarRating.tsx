@@ -2,7 +2,7 @@ import { memo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './StarRating.module.scss';
 import { Icon } from '../Icon/Icon';
-import StarIcon from '@/shared/assets/icons/star-deprecated.svg';
+import StarIcon from '@/shared/assets/icons/star.svg';
 
 interface StarRatingProps {
   className?: string;
@@ -13,10 +13,6 @@ interface StarRatingProps {
 
 const stars = [1, 2, 3, 4, 5];
 
-/**
- * @deprecated
- * Устарел, используем новые компоненты из папки redesigned
- */
 export const StarRating = memo((props: StarRatingProps) => {
   const { className, onSelect, size = 30, selectedStars = 0 } = props;
 
@@ -44,10 +40,11 @@ export const StarRating = memo((props: StarRatingProps) => {
   };
 
   return (
-    <div className={classNames('', {}, [className])}>
+    <div className={classNames(cls.StarRating, {}, [className])}>
       {stars.map((starNumber) => (
         <Icon
           key={starNumber}
+          clickable={!isSelected}
           data-testid={`StarRating.${starNumber}`}
           data-selected={currentStarsCount >= starNumber}
           className={classNames(
