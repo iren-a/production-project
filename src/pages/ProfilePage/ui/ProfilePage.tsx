@@ -5,7 +5,9 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { EditableProfileCard } from '@/features/EditableProfileCard';
-import { Text } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface ProfilePageProps {
   className?: string;
@@ -18,7 +20,13 @@ const ProfilePage = memo((props: ProfilePageProps) => {
   const { id } = useParams<{ id: string }>();
 
   if (!id) {
-    return <Text text={t('Профиль не найден', { ns: 'profile' })} />;
+    return (
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={<Text text={t('Профиль не найден', { ns: 'profile' })} />}
+        off={<TextDeprecated text={t('Профиль не найден', { ns: 'profile' })} />}
+      />
+    );
   }
 
   return (
