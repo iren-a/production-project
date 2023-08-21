@@ -28,11 +28,26 @@
 }
 
 *::-webkit-scrollbar-thumb { /* плашка-бегунок */
+  background: var(--icon-redesigned);
+  border-radius: 20px;
+  border: 1px solid var(--accent-redesigned);
+}
+
+*::-webkit-scrollbar-track { /* фон */
+  background: var(--light-bg-redesigned);
+}
+
+.app *::-webkit-scrollbar {
+  width: 8px; /* в основном для вертикальных полос прокрутки */
+  height: 8px; /* в основном для горизонтальных полос прокрутки */
+}
+
+.app *::-webkit-scrollbar-thumb { /* плашка-бегунок */
   background: var(--inverted-primary-color);
   border-radius: 20px;
   border: 2px solid var(--primary-color);
 }
 
-*::-webkit-scrollbar-track { /* фон */
+.app *::-webkit-scrollbar-track { /* фон */
   background: var(--card-bg);
 }
