@@ -7,13 +7,12 @@ import { StoreProvider } from '@/app/providers/StoreProvider';
 import App from './app/App';
 import '@/shared/config/i18n/i18n';
 import '@/app/styles/index.scss';
+import { ForceUpdateProvider } from '@/shared/lib/render/forceUpdate';
 
 const container = document.getElementById('root');
 
 if (!container) {
-  throw new Error(
-    'Контейнер root на найден. Не удалось вмонтировать React приложение',
-  );
+  throw new Error('Контейнер root на найден. Не удалось вмонтировать React приложение');
 }
 
 const root = createRoot(container);
@@ -23,9 +22,11 @@ root.render(
     <StoreProvider>
       <Suspense fallback="">
         <ErrorBoundary>
-          <ThemeProvider>
-            <App />
-          </ThemeProvider>
+          <ForceUpdateProvider>
+            <ThemeProvider>
+              <App />
+            </ThemeProvider>
+          </ForceUpdateProvider>
         </ErrorBoundary>
       </Suspense>
     </StoreProvider>
