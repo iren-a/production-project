@@ -11,11 +11,13 @@ import { PageLoader } from '@/widgets/PageLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
+import { useAppToolbar } from './lib/useAppToolbar';
 
 const App = () => {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
   const isUserInit = useSelector(getIsUserInit);
+  const toolbar = useAppToolbar();
 
   useEffect(() => {
     dispatch(initAuthData());
@@ -40,7 +42,12 @@ const App = () => {
       feature="isAppRedesigned"
       on={
         <div id="app" className={classNames('app-redesigned', {}, [theme])}>
-          <MainLayout header={<Navbar />} content={<AppRouter />} sidebar={<Sidebar />} />
+          <MainLayout
+            header={<Navbar />}
+            content={<AppRouter />}
+            sidebar={<Sidebar />}
+            toolbar={toolbar}
+          />
         </div>
       }
       off={
