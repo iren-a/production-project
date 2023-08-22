@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { memo, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { AppRouter } from '@/app/providers/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -12,8 +12,9 @@ import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { useAppToolbar } from './lib/useAppToolbar';
+import { withTheme } from './providers/ThemeProvider/ui/withTheme';
 
-const App = () => {
+const App = memo(() => {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
   const isUserInit = useSelector(getIsUserInit);
@@ -61,6 +62,6 @@ const App = () => {
       }
     />
   );
-};
+});
 
-export default App;
+export default withTheme(App);
