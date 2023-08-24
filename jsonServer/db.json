@@ -1677,7 +1677,7 @@
       "roles": [
         "ADMIN"
       ],
-      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg1",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg",
       "jsonSettings": {
         "theme": "app_light_theme",
         "isFirstVisit": true,
@@ -1697,7 +1697,7 @@
       "roles": [
         "USER"
       ],
-      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg2",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg",
       "jsonSettings": {
         "theme": "app_light_theme",
         "isFirstVisit": true,
@@ -1717,7 +1717,7 @@
       "roles": [
         "MANAGER"
       ],
-      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg3",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg",
       "jsonSettings": {
         "theme": "app_dark_theme",
         "isFirstVisit": true,
@@ -1736,7 +1736,7 @@
       "roles": [
         "USER"
       ],
-      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg3",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg",
       "jsonSettings": {
         "theme": "app_dark_theme",
         "isFirstVisit": true,
@@ -1754,12 +1754,12 @@
       "id": "1",
       "first": "Иван",
       "lastname": "Петров",
-      "age": 229,
+      "age": 22,
       "currency": "USD",
       "country": "Kazakhstan",
       "city": "Moscow",
       "username": "admin",
-      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg1"
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
     },
     {
       "id": "2",
