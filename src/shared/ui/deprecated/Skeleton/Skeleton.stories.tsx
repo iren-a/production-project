@@ -5,16 +5,14 @@ import { Theme } from '@/app/providers/ThemeProvider';
 import { Skeleton } from './Skeleton';
 
 export default {
-  title: 'shared/Skeleton',
+  title: 'shared/deprecated/Skeleton',
   component: Skeleton,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
 } as ComponentMeta<typeof Skeleton>;
 
-const Template: ComponentStory<typeof Skeleton> = (args) => (
-  <Skeleton {...args} />
-);
+const Template: ComponentStory<typeof Skeleton> = (args) => <Skeleton {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

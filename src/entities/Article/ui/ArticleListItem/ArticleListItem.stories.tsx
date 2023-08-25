@@ -1,12 +1,9 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import {
-  ArticleBlockType,
-  ArticleType,
-  ArticleView,
-} from '../../model/consts/consts';
+import { ArticleBlockType, ArticleType, ArticleView } from '../../model/consts/consts';
 import { Article } from '../../model/types/article';
 import { ArticleListItem } from './ArticleListItem';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator';
 
 const article: Article = {
   id: '1',
@@ -60,18 +57,30 @@ export default {
   },
 } as ComponentMeta<typeof ArticleListItem>;
 
-const Template: ComponentStory<typeof ArticleListItem> = (args) => (
-  <ArticleListItem {...args} />
-);
+const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListItem {...args} />;
 
 export const Big = Template.bind({});
 Big.args = {
   article,
   view: ArticleView.BIG,
 };
+Big.decorators = [NewDesignDecorator];
 
 export const Small = Template.bind({});
 Small.args = {
+  article,
+  view: ArticleView.SMALL,
+};
+Small.decorators = [NewDesignDecorator];
+
+export const BigDeprecated = Template.bind({});
+BigDeprecated.args = {
+  article,
+  view: ArticleView.BIG,
+};
+
+export const SmallDeprecated = Template.bind({});
+SmallDeprecated.args = {
   article,
   view: ArticleView.SMALL,
 };

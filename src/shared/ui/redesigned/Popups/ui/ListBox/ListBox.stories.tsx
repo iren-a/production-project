@@ -3,33 +3,28 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { ListBox } from './ListBox';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator';
 
 export default {
-  title: 'shared/ListBox',
+  title: 'shared/redesigned/ListBox',
   component: ListBox,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-  decorators: [
-    (Story) => (
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          height: '100vh',
-        }}
-      >
-        <Story />
-      </div>
-    ),
-  ],
 } as ComponentMeta<typeof ListBox>;
 
 const Template: ComponentStory<typeof ListBox> = (args) => (
-  <ListBox {...args} />
+  <div
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: '100vh',
+    }}
+  >
+    <ListBox {...args} />
+  </div>
 );
-
 const items = [
   { value: '1', content: 'aaa' },
   { value: '2', content: 'bbb' },
@@ -42,6 +37,7 @@ Primary.args = {
   label: 'Выберите значение',
   items,
 };
+Primary.decorators = [NewDesignDecorator];
 
 export const WithDefaultValue = Template.bind({});
 WithDefaultValue.args = {
@@ -49,13 +45,14 @@ WithDefaultValue.args = {
   defaultValue: '2',
   items,
 };
+Primary.decorators = [NewDesignDecorator];
 
 export const Dark = Template.bind({});
 Dark.args = {
   label: 'Выберите значение',
   items,
 };
-Dark.decorators = [ThemeDecorator(Theme.Dark)];
+Dark.decorators = [NewDesignDecorator, ThemeDecorator(Theme.Dark)];
 
 export const DarkWithDefaultValue = Template.bind({});
 DarkWithDefaultValue.args = {
@@ -63,7 +60,22 @@ DarkWithDefaultValue.args = {
   defaultValue: '2',
   items,
 };
-DarkWithDefaultValue.decorators = [ThemeDecorator(Theme.Dark)];
+DarkWithDefaultValue.decorators = [NewDesignDecorator, ThemeDecorator(Theme.Dark)];
+
+export const Orange = Template.bind({});
+Orange.args = {
+  label: 'Выберите значение',
+  items,
+};
+Orange.decorators = [NewDesignDecorator, ThemeDecorator(Theme.Orange)];
+
+export const OrangeWithDefaultValue = Template.bind({});
+OrangeWithDefaultValue.args = {
+  label: 'Выберите значение',
+  defaultValue: '2',
+  items,
+};
+OrangeWithDefaultValue.decorators = [NewDesignDecorator, ThemeDecorator(Theme.Orange)];
 
 export const TopLeft = Template.bind({});
 TopLeft.args = {
@@ -72,6 +84,7 @@ TopLeft.args = {
   label: 'Выберите значение',
   items,
 };
+TopLeft.decorators = [NewDesignDecorator];
 
 export const TopRight = Template.bind({});
 TopRight.args = {
@@ -80,6 +93,7 @@ TopRight.args = {
   label: 'Выберите значение',
   items,
 };
+TopRight.decorators = [NewDesignDecorator];
 
 export const BottomLeft = Template.bind({});
 BottomLeft.args = {
@@ -88,6 +102,7 @@ BottomLeft.args = {
   label: 'Выберите значение',
   items,
 };
+BottomLeft.decorators = [NewDesignDecorator];
 
 export const BottomRight = Template.bind({});
 BottomRight.args = {
@@ -96,3 +111,4 @@ BottomRight.args = {
   label: 'Выберите значение',
   items,
 };
+BottomRight.decorators = [NewDesignDecorator];

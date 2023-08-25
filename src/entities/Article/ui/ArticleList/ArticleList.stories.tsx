@@ -1,12 +1,9 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import {
-  ArticleBlockType,
-  ArticleType,
-  ArticleView,
-} from '../../model/consts/consts';
+import { ArticleBlockType, ArticleType, ArticleView } from '../../model/consts/consts';
 import { ArticleList } from './ArticleList';
 import { Article } from '../../model/types/article';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator';
 
 const article: Article = {
   id: '1',
@@ -65,9 +62,7 @@ export default {
   },
 } as ComponentMeta<typeof ArticleList>;
 
-const Template: ComponentStory<typeof ArticleList> = (args) => (
-  <ArticleList {...args} />
-);
+const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
 
 export const LoadingBig = Template.bind({});
 LoadingBig.args = {
@@ -75,6 +70,7 @@ LoadingBig.args = {
   isLoading: true,
   view: ArticleView.BIG,
 };
+LoadingBig.decorators = [NewDesignDecorator];
 
 export const LoadingSmall = Template.bind({});
 LoadingSmall.args = {
@@ -82,15 +78,44 @@ LoadingSmall.args = {
   isLoading: true,
   view: ArticleView.SMALL,
 };
+LoadingSmall.decorators = [NewDesignDecorator];
 
 export const ListBig = Template.bind({});
 ListBig.args = {
   articles,
   view: ArticleView.BIG,
 };
+ListBig.decorators = [NewDesignDecorator];
 
 export const ListSmall = Template.bind({});
 ListSmall.args = {
+  articles,
+  view: ArticleView.SMALL,
+};
+ListSmall.decorators = [NewDesignDecorator];
+
+export const LoadingBigDeprecated = Template.bind({});
+LoadingBigDeprecated.args = {
+  articles: [],
+  isLoading: true,
+  view: ArticleView.BIG,
+};
+
+export const LoadingSmallDeprecated = Template.bind({});
+LoadingSmallDeprecated.args = {
+  articles: [],
+  isLoading: true,
+  view: ArticleView.SMALL,
+};
+
+export const ListBigDeprecated = Template.bind({});
+ListBigDeprecated.args = {
+  articles,
+  view: ArticleView.BIG,
+};
+
+export const ListSmallDeprecated = Template.bind({});
+ListSmallDeprecated.args = {
   articles,
   view: ArticleView.SMALL,
 };

@@ -1,13 +1,15 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Flex } from './Flex';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator';
 
 export default {
-  title: 'shared/Flex',
+  title: 'shared/redesigned/Flex',
   component: Flex,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [NewDesignDecorator],
 } as ComponentMeta<typeof Flex>;
 
 const Template: ComponentStory<typeof Flex> = (args) => <Flex {...args} />;

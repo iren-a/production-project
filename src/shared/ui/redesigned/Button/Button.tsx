@@ -17,10 +17,6 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    */
   color?: ButtonColor;
   /**
-   * Флаг, делающий кнопку квадратной
-   */
-  square?: boolean;
-  /**
    * Размер кнопки
    */
   size?: ButtonSize;
@@ -48,7 +44,6 @@ export const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<HTMLButt
     children,
     variant = 'outlined',
     color = 'normal',
-    square,
     size = 'm',
     disabled,
     fullWidth,
@@ -58,7 +53,6 @@ export const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<HTMLButt
   } = props;
 
   const mods: Mods = {
-    [cls.square]: square,
     [cls.disabled]: disabled,
     [cls.fullWidth]: fullWidth,
     [cls.withAddon]: Boolean(addonLeft) || Boolean(addonRight),

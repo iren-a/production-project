@@ -3,9 +3,10 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { AppLink } from './AppLink';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator';
 
 export default {
-  title: 'shared/AppLink',
+  title: 'shared/redesigned/AppLink',
   component: AppLink,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -21,9 +22,16 @@ export const Primary = Template.bind({});
 Primary.args = {
   children: 'Text',
 };
+Primary.decorators = [NewDesignDecorator];
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
+export const Dark = Template.bind({});
+Dark.args = {
   children: 'Text',
 };
-PrimaryDark.decorators = [ThemeDecorator(Theme.Dark)];
+Dark.decorators = [NewDesignDecorator, ThemeDecorator(Theme.Dark)];
+
+export const Orange = Template.bind({});
+Orange.args = {
+  children: 'Text',
+};
+Orange.decorators = [NewDesignDecorator, ThemeDecorator(Theme.Orange)];

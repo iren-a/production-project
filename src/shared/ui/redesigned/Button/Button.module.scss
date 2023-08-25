@@ -76,10 +76,6 @@
   }
 }
 
-.square {
-  padding: 0;
-}
-
 .m {
   font: var(--font-m-redesigned);
 }
@@ -90,21 +86,6 @@
 
 .xl {
   font: var(--font-xl-redesigned);
-}
-
-.square.m {
-  width: var(--font-line-m);
-  height: var(--font-line-m);
-}
-
-.square.l {
-  width: var(--font-line-l);
-  height: var(--font-line-l);
-}
-
-.square.xl {
-  width: var(--font-line-xl);
-  height: var(--font-line-xl);
 }
 
 .disabled {

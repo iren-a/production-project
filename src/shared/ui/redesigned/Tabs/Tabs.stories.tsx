@@ -2,13 +2,15 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { Tabs } from './Tabs';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator';
 
 export default {
-  title: 'shared/Tabs',
+  title: 'shared/redesigned/Tabs',
   component: Tabs,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [NewDesignDecorator],
 } as ComponentMeta<typeof Tabs>;
 
 const Template: ComponentStory<typeof Tabs> = (args) => <Tabs {...args} />;

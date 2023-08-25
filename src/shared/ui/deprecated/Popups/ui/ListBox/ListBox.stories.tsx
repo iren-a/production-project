@@ -5,7 +5,7 @@ import { Theme } from '@/app/providers/ThemeProvider';
 import { ListBox } from './ListBox';
 
 export default {
-  title: 'shared/ListBox',
+  title: 'shared/deprecated/ListBox',
   component: ListBox,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -26,9 +26,7 @@ export default {
   ],
 } as ComponentMeta<typeof ListBox>;
 
-const Template: ComponentStory<typeof ListBox> = (args) => (
-  <ListBox {...args} />
-);
+const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />;
 
 const items = [
   { value: '1', content: 'aaa' },

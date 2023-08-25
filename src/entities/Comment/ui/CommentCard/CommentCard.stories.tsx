@@ -24,15 +24,22 @@ export const Primary = Template.bind({});
 Primary.args = {
   comment,
 };
-
-export const PrimaryRedesigned = Template.bind({});
-PrimaryRedesigned.args = {
-  comment,
-};
-PrimaryRedesigned.decorators = [NewDesignDecorator];
+Primary.decorators = [NewDesignDecorator];
 
 export const Loading = Template.bind({});
 Loading.args = {
+  comment,
+  isLoading: true,
+};
+Primary.decorators = [NewDesignDecorator];
+
+export const PrimaryDeprecated = Template.bind({});
+PrimaryDeprecated.args = {
+  comment,
+};
+
+export const LoadingDeprecated = Template.bind({});
+LoadingDeprecated.args = {
   comment,
   isLoading: true,
 };

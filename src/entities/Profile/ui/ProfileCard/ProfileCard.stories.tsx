@@ -3,7 +3,6 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { ProfileCard } from './ProfileCard';
-import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator';
 import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator';
 
 export default {
@@ -31,20 +30,31 @@ export const Primary = Template.bind({});
 Primary.args = {
   data,
 };
-Primary.decorators = [FeatureFlagsDecorator({ isAppRedesigned: false })];
-
-export const PrimaryRedesigned = Template.bind({});
-PrimaryRedesigned.args = {
-  data,
-};
-PrimaryRedesigned.decorators = [NewDesignDecorator];
+Primary.decorators = [NewDesignDecorator];
 
 export const WithError = Template.bind({});
 WithError.args = {
   error: 'error',
 };
+WithError.decorators = [NewDesignDecorator];
 
 export const Loading = Template.bind({});
 Loading.args = {
+  isLoading: true,
+};
+Loading.decorators = [NewDesignDecorator];
+
+export const PrimaryDeprecated = Template.bind({});
+PrimaryDeprecated.args = {
+  data,
+};
+
+export const WithErrorDeprecated = Template.bind({});
+WithErrorDeprecated.args = {
+  error: 'error',
+};
+
+export const LoadingDeprecated = Template.bind({});
+LoadingDeprecated.args = {
   isLoading: true,
 };

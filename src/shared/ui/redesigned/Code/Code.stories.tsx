@@ -1,9 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Code } from './Code';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator';
 
 export default {
-  title: 'shared/Code',
+  title: 'shared/redesigned/Code',
   component: Code,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -29,3 +30,4 @@ Primary.args = {
     '\n' +
     'const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;',
 };
+Primary.decorators = [NewDesignDecorator];

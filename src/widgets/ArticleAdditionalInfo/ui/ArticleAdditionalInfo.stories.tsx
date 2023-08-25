@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ArticleAdditionalInfo } from './ArticleAdditionalInfo';
 
 export default {
-  title: 'shared/ArticleAdditionalInfo',
+  title: 'widgets/ArticleAdditionalInfo',
   component: ArticleAdditionalInfo,
   argTypes: {
     backgroundColor: { control: 'color' },

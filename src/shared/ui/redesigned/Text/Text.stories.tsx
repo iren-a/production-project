@@ -3,9 +3,10 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { Text } from './Text';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator';
 
 export default {
-  title: 'shared/Text',
+  title: 'shared/redesigned/Text',
   component: Text,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -19,6 +20,21 @@ Primary.args = {
   title: 'Lorem ipsum',
   text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto cum eius esse exercitationem impedit obcaecati quam quasi qui tenetur!',
 };
+Primary.decorators = [NewDesignDecorator];
+
+export const PrimaryDark = Template.bind({});
+PrimaryDark.args = {
+  title: 'Lorem ipsum',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto cum eius esse exercitationem impedit obcaecati quam quasi qui tenetur!',
+};
+PrimaryDark.decorators = [NewDesignDecorator, ThemeDecorator(Theme.Dark)];
+
+export const PrimaryOrange = Template.bind({});
+PrimaryOrange.args = {
+  title: 'Lorem ipsum',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto cum eius esse exercitationem impedit obcaecati quam quasi qui tenetur!',
+};
+PrimaryOrange.decorators = [NewDesignDecorator, ThemeDecorator(Theme.Orange)];
 
 export const Error = Template.bind({});
 Error.args = {
@@ -26,35 +42,31 @@ Error.args = {
   text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto cum eius esse exercitationem impedit obcaecati quam quasi qui tenetur!',
   variant: 'error',
 };
+Primary.decorators = [NewDesignDecorator];
 
 export const OnlyTitle = Template.bind({});
 OnlyTitle.args = {
   title: 'Lorem ipsum',
 };
+Primary.decorators = [NewDesignDecorator];
 
 export const OnlyText = Template.bind({});
 OnlyText.args = {
   text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto cum eius esse exercitationem impedit obcaecati quam quasi qui tenetur!',
 };
-
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-  title: 'Lorem ipsum',
-  text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto cum eius esse exercitationem impedit obcaecati quam quasi qui tenetur!',
-};
-PrimaryDark.decorators = [ThemeDecorator(Theme.Dark)];
+OnlyText.decorators = [NewDesignDecorator];
 
 export const OnlyTitleDark = Template.bind({});
 OnlyTitleDark.args = {
   title: 'Lorem ipsum',
 };
-OnlyTitleDark.decorators = [ThemeDecorator(Theme.Dark)];
+OnlyTitleDark.decorators = [NewDesignDecorator, ThemeDecorator(Theme.Dark)];
 
 export const OnlyTextDark = Template.bind({});
 OnlyTextDark.args = {
   text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto cum eius esse exercitationem impedit obcaecati quam quasi qui tenetur!',
 };
-OnlyTextDark.decorators = [ThemeDecorator(Theme.Dark)];
+OnlyTextDark.decorators = [NewDesignDecorator, ThemeDecorator(Theme.Dark)];
 
 export const SizeS = Template.bind({});
 SizeS.args = {
@@ -62,6 +74,7 @@ SizeS.args = {
   text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto cum eius esse exercitationem impedit obcaecati quam quasi qui tenetur!',
   size: 's',
 };
+SizeS.decorators = [NewDesignDecorator];
 
 export const SizeM = Template.bind({});
 SizeM.args = {
@@ -69,6 +82,7 @@ SizeM.args = {
   text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto cum eius esse exercitationem impedit obcaecati quam quasi qui tenetur!',
   size: 'm',
 };
+SizeM.decorators = [NewDesignDecorator];
 
 export const SizeL = Template.bind({});
 SizeL.args = {
@@ -76,3 +90,4 @@ SizeL.args = {
   text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto cum eius esse exercitationem impedit obcaecati quam quasi qui tenetur!',
   size: 'l',
 };
+SizeL.decorators = [NewDesignDecorator];

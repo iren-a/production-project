@@ -2,9 +2,10 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button } from '../../../Button/Button';
 import { Dropdown } from './Dropdown';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator';
 
 export default {
-  title: 'shared/Dropdown',
+  title: 'shared/redesigned/Dropdown',
   component: Dropdown,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -17,11 +18,13 @@ export default {
           alignItems: 'center',
           justifyContent: 'center',
           height: '100vh',
+          width: '100%',
         }}
       >
         <Story />
       </div>
     ),
+    NewDesignDecorator,
   ],
 } as ComponentMeta<typeof Dropdown>;
 

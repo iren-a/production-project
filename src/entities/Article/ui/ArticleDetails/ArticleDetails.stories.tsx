@@ -4,6 +4,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ArticleType, ArticleBlockType } from '../../model/consts/consts';
 import { Article } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator';
 
 export default {
   title: 'entities/Article/ArticleDetails',
@@ -13,9 +14,7 @@ export default {
   },
 } as ComponentMeta<typeof ArticleDetails>;
 
-const Template: ComponentStory<typeof ArticleDetails> = (args) => (
-  <ArticleDetails {...args} />
-);
+const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
 
 const article: Article = {
   id: '1',
@@ -64,6 +63,7 @@ const article: Article = {
 export const Primary = Template.bind({});
 Primary.args = {};
 Primary.decorators = [
+  NewDesignDecorator,
   StoreDecorator({
     articleDetails: {
       data: article,
@@ -74,6 +74,7 @@ Primary.decorators = [
 export const Loading = Template.bind({});
 Loading.args = {};
 Loading.decorators = [
+  NewDesignDecorator,
   StoreDecorator({
     articleDetails: {
       isLoading: true,
@@ -84,6 +85,37 @@ Loading.decorators = [
 export const Error = Template.bind({});
 Error.args = {};
 Error.decorators = [
+  NewDesignDecorator,
+  StoreDecorator({
+    articleDetails: {
+      error: 'error',
+    },
+  }),
+];
+
+export const PrimaryDeprecated = Template.bind({});
+PrimaryDeprecated.args = {};
+PrimaryDeprecated.decorators = [
+  StoreDecorator({
+    articleDetails: {
+      data: article,
+    },
+  }),
+];
+
+export const LoadingDeprecated = Template.bind({});
+LoadingDeprecated.args = {};
+LoadingDeprecated.decorators = [
+  StoreDecorator({
+    articleDetails: {
+      isLoading: true,
+    },
+  }),
+];
+
+export const ErrorDeprecated = Template.bind({});
+ErrorDeprecated.args = {};
+ErrorDeprecated.decorators = [
   StoreDecorator({
     articleDetails: {
       error: 'error',

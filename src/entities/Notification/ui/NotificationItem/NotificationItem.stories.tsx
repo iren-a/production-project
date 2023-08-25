@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { NotificationItem } from './NotificationItem';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator';
 
 export default {
   title: 'entities/Notification/NotificationItem',
@@ -10,16 +11,18 @@ export default {
   },
 } as ComponentMeta<typeof NotificationItem>;
 
-const Template: ComponentStory<typeof NotificationItem> = (args) => (
-  <NotificationItem {...args} />
-);
+const Template: ComponentStory<typeof NotificationItem> = (args) => <NotificationItem {...args} />;
+
+const item = {
+  id: '1',
+  title: 'Уведомление',
+  description: 'Текст уведомления',
+  userId: '1',
+};
 
 export const Primary = Template.bind({});
-Primary.args = {
-  item: {
-    id: '1',
-    title: 'Уведомление',
-    description: 'Текст уведомления',
-    userId: '1',
-  },
-};
+Primary.args = { item };
+Primary.decorators = [NewDesignDecorator];
+
+export const PrimaryDeprecated = Template.bind({});
+PrimaryDeprecated.args = { item };
