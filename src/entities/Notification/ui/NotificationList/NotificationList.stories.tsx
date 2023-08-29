@@ -47,4 +47,4 @@ Primary.decorators = [NewDesignDecorator];
 
 export const PrimaryDeprecated = Template.bind({});
 PrimaryDeprecated.args = {};
-Primary.parameters = { mockData };
+PrimaryDeprecated.parameters = { mockData };
