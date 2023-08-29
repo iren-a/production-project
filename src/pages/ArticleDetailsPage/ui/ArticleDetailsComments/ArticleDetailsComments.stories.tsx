@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ArticleDetailsComments } from './ArticleDetailsComments';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator';
 
 export default {
   title: 'pages/ArticleDetailsPage/ArticleDetailsComments',
@@ -16,3 +17,7 @@ const Template: ComponentStory<typeof ArticleDetailsComments> = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {};
+Primary.decorators = [NewDesignDecorator];
+
+export const PrimaryDeprecated = Template.bind({});
+PrimaryDeprecated.args = {};

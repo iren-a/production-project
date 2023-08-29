@@ -13,5 +13,5 @@ export default {
 
 const Template: ComponentStory<typeof SettingsPage> = (args) => <SettingsPage {...args} />;
 
-export const Normal = Template.bind({});
-Normal.args = {};
+export const Primary = Template.bind({});
+Primary.args = {};

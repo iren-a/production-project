@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
 import { Article, ArticleType } from '@/entities/Article';
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator';
 
 export default {
   title: 'features/ArticleRecommendationsList',
@@ -32,19 +33,28 @@ const article: Article = {
   blocks: [],
 };
 
-export const Normal = Template.bind({});
-Normal.args = {};
-Normal.parameters = {
-  mockData: [
-    {
-      url: `${__API__}/articles?_limit=3`,
-      method: 'GET',
-      status: 200,
-      response: [
-        { ...article, id: '1' },
-        { ...article, id: '2' },
-        { ...article, id: '3' },
-      ],
-    },
-  ],
+const mockData = [
+  {
+    url: `${__API__}/articles?_limit=3&_expand=user`,
+    method: 'GET',
+    status: 200,
+    response: [
+      { ...article, id: '1' },
+      { ...article, id: '2' },
+      { ...article, id: '3' },
+    ],
+  },
+];
+
+export const Primary = Template.bind({});
+Primary.args = {};
+Primary.decorators = [NewDesignDecorator];
+Primary.parameters = {
+  mockData,
+};
+
+export const PrimaryDeprecated = Template.bind({});
+PrimaryDeprecated.args = {};
+PrimaryDeprecated.parameters = {
+  mockData,
 };

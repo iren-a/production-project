@@ -14,5 +14,5 @@ const Template: ComponentStory<typeof ArticlesPageFilters> = (args) => (
   <ArticlesPageFilters {...args} />
 );
 
-export const Primary = Template.bind({});
-Primary.args = {};
+export const PrimaryDeprecated = Template.bind({});
+PrimaryDeprecated.args = {};

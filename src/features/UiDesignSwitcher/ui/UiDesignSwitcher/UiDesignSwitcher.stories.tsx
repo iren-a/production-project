@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { UiDesignSwitcher } from './UiDesignSwitcher';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator';
 
 export default {
   title: 'features/UiDesignSwitcher',
@@ -13,7 +14,6 @@ export default {
 
 const Template: ComponentStory<typeof UiDesignSwitcher> = (args) => <UiDesignSwitcher {...args} />;
 
-export const Normal = Template.bind({});
-Normal.args = {
-
-};
+export const Primary = Template.bind({});
+Primary.args = {};
+Primary.decorators = [NewDesignDecorator];

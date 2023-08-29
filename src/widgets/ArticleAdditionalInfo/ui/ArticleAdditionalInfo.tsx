@@ -6,7 +6,7 @@ import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Button } from '@/shared/ui/redesigned/Button';
 
-interface ArticleAdditionalInfoProps {
+export interface ArticleAdditionalInfoProps {
   className?: string;
   onEdit: () => void;
   author: User;

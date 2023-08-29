@@ -12,7 +12,7 @@ import { Input } from '@/shared/ui/redesigned/Input';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import SearchIcon from '@/shared/assets/icons/search.svg';
 
-interface ArticlesFiltersProps {
+export interface ArticlesFiltersProps {
   className?: string;
   sort: ArticleSortField;
   order: SortOrder;

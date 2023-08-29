@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { EditableProfileCardHeader } from './EditableProfileCardHeader';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator';
 
 export default {
   title: 'features/EditableProfileCard/EditableProfileCardHeader',
@@ -16,3 +17,7 @@ const Template: ComponentStory<typeof EditableProfileCardHeader> = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {};
+Primary.decorators = [NewDesignDecorator];
+
+export const PrimaryDeprecated = Template.bind({});
+PrimaryDeprecated.args = {};
