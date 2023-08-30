@@ -8,6 +8,7 @@ export interface BuildPaths {
   locales: string;
   buildLocales: string;
   assets: string;
+  favicon: string;
 }
 
 export interface BuildEnv {
