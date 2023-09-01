@@ -1,5 +1,5 @@
 function jestEmptyComponent() {
-  return <div />;
+  return <div className="jestEmptyComponent" />;
 }
 
 export default jestEmptyComponent;

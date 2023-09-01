@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Icon.module.scss';
+import { TestsProps } from '@/shared/types/tests';
 
 type SvgProps = Omit<React.SVGProps<SVGSVGElement>, 'onClick'>;
 
@@ -13,7 +14,7 @@ interface NonClickableIconProps extends IconBaseProps {
   clickable?: false;
 }
 
-interface ClickableIconProps extends IconBaseProps {
+interface ClickableIconProps extends IconBaseProps, TestsProps {
   clickable: true;
   onClick: () => void;
 }
@@ -29,7 +30,12 @@ export const Icon = memo((props: IconProps) => {
 
   if (clickable) {
     return (
-      <button type="button" className={cls.button} onClick={props.onClick}>
+      <button
+        type="button"
+        className={cls.button}
+        onClick={props.onClick}
+        data-testid={props['data-testid']}
+      >
         {icon}
       </button>
     );
