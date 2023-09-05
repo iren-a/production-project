@@ -1,3 +1,15 @@
+# Blog App
+
+![Screenshot](screenshots/articles_light_theme.png)
+
+## Демо
+
+https://production-project.irinaarinushkina.com/
+
+Login: admin<br>
+Password: 123
+
+
 ## Запуск проекта
 
 ```
@@ -20,16 +32,16 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 - `npm run lint:ts:fix` - Исправление ts файлов линтером
 - `npm run lint:scss` - Проверка scss файлов style линтером
 - `npm run lint:scss:fix` - Исправление scss файлов style линтером
-- `npm run test:unit` - Хапуск unit тестов с jest
-- `npm run test:ui` - Хапуск скриншотных тестов с loki
+- `npm run test:unit` - Запуск unit тестов с jest
+- `npm run test:ui` - Запуск скриншотных тестов с loki
 - `npm run test:ui:ok` - Подтверждение новых скриншотов
 - `npm run test:ui:ci` - Запуск скриншотных тестов в CI
 - `npm run test:ui:report` - Генерация полного отчета для скриншотных тестов
 - `npm run test:ui:json` - Генерация json отчета для скриншотных тестов
 - `npm run test:ui:html` - Генерация HTML отчета для скриншотных тестов
-- `npm run storybook` - запуск Storybook
+- `npm run storybook` - Запуск Storybook
 - `npm run storybook:build` - Сборка storybook билда
-- `npm run prepare` - прекоммит хуки
+- `npm run prepare` - Прекоммит хуки
 - `npm run generate:slice` - Скрипт для генерации FSD слайсов
 
 ----
@@ -56,7 +68,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 ## Тесты
 
 В проекте используются 4 вида тестов:
-1) Обычные unit тесты на jest - `npm run test:unit`
+1) Unit тесты на jest - `npm run test:unit`
 2) Тесты на компоненты с React testing library -`npm run test:unit`
 3) Скриншотное тестирование с loki `npm run test:ui`
 4) e2e тестирование с Cypress `npm run test:e2e`
@@ -172,9 +184,12 @@ Clear.args = {
 
 ### Работа с feature-flags
 
-Разщрешено использование feature-flags только с помощью хелпера toggleFeatures.
+Разрешено использование feature-flags только с помощью
+- хелпера toggleFeatures (используется дла js)
+- компонента ToggleFeatures (используется для jsx).
 
-В него передается объект с опциями
+#### Работа с toggleFeatures
+В хелпер передается объект с опциями
 ``` javascript
 {
    name: название feature-flag,
@@ -182,6 +197,18 @@ Clear.args = {
    off: функция, которая отработает при отключении фичи
 }
 ```
+
+#### Работа с ToggleFeatures
+В компонент передаются пропсы
+``` javascript
+{
+  feature: название feature-flag,
+  on: ReactElement, который будет отрисован при включении фичи,
+  off: ReactElement, который будет отрисован при отключении фичи;
+}
+```
+
+#### Включение/отключение фичи
 Для автоматического удаления фичи использовать скрипт removeFeature.ts, который принимает два аргумента
 1. Название удаляемого фича-флага
 2. Состояние (on/off)
@@ -193,7 +220,6 @@ Clear.args = {
 
 - [Article](/src/entities/Article)
 - [Comment](/src/entities/Comment)
-- [Counter](/src/entities/Counter)
 - [Country](/src/entities/Country)
 - [Currency](/src/entities/Currency)
 - [Notification](/src/entities/Notification)
@@ -203,15 +229,13 @@ Clear.args = {
 
 ## Фичи (features)
 
-- [addCommentForm](/src/features/addCommentForm)
-- [articleEditForm](/src/features/articleEditForm)
-- [articleRating](/src/features/articleRating)
-- [articleRecommendationsList](/src/features/articleRecommendationsList)
-- [AuthByUsername](/src/features/AuthByUsername)
-- [avatarDropdown](/src/features/avatarDropdown)
-- [editableProfileCard](/src/features/editableProfileCard)
+- [addCommentForm](/src/features/AddCommentForm)
+- [articleRating](/src/features/ArticleRating)
+- [articleRecommendationsList](/src/features/ArticleRecommendationsList)
+- [AuthByUsername](/src/features/AuthByUserName)
+- [avatarDropdown](/src/features/AvatarDropdown)
+- [editableProfileCard](/src/features/EditableProfileCard)
 - [LangSwitcher](/src/features/LangSwitcher)
-- [notificationButton](/src/features/notificationButton)
-- [profileRating](/src/features/profileRating)
+- [notificationButton](/src/features/NotificationButton)
 - [ThemeSwitcher](/src/features/ThemeSwitcher)
-- [UI](/src/features/UI)
+- [UI](/src/features/UiDesignSwitcher)
